@@ -1,0 +1,14 @@
+- [ ] GlobalExceptionHandler (@ControllerAdvice)
+- [ ] JWT
+- [ ] JWT implementation
+- [ ] PasswordEncoder
+- [ ] TransactionController
+- [ ] UserController
+- [ ] UserService
+- [ ] TransactionService
+
+- [x] Exceptions
+- [x] Models
+- [x] DTOs
+- [x] Enums
+- [x] Repositories
