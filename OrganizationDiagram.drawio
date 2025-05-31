@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" version="27.1.1">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="2852" dy="1570" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0" adaptiveColors="auto">
+    <mxGraphModel dx="1056" dy="581" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0" adaptiveColors="auto">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -8,51 +8,33 @@
           <mxGeometry x="40" y="40" width="800" height="400" as="geometry" />
         </mxCell>
         <mxCell id="hyd5x-qJ4TXRHwMhlFfb-90" value="Entity - User" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-103" vertex="1">
-          <mxGeometry x="40" y="150" width="150" height="150" as="geometry" />
+          <mxGeometry x="80" y="150" width="150" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="hyd5x-qJ4TXRHwMhlFfb-91" value="+ String id&lt;div&gt;+ String name&lt;/div&gt;&lt;div&gt;+ String email&lt;/div&gt;&lt;div&gt;+ String password&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-90" vertex="1">
-          <mxGeometry y="26" width="150" height="124" as="geometry" />
-        </mxCell>
-        <mxCell id="hyd5x-qJ4TXRHwMhlFfb-104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;strokeColor=#788AA3;fontColor=default;" parent="hyd5x-qJ4TXRHwMhlFfb-103" source="hyd5x-qJ4TXRHwMhlFfb-100" target="hyd5x-qJ4TXRHwMhlFfb-98" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="hyd5x-qJ4TXRHwMhlFfb-100" value="Entity - Category" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-103" vertex="1">
-          <mxGeometry x="610" y="150" width="150" height="150" as="geometry" />
-        </mxCell>
-        <mxCell id="hyd5x-qJ4TXRHwMhlFfb-101" value="+ Long id&lt;div&gt;+ String name&lt;/div&gt;&lt;div&gt;+ TransactionType type&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-100" vertex="1">
+        <mxCell id="hyd5x-qJ4TXRHwMhlFfb-91" value="+ UUID id&lt;div&gt;+ String name&lt;/div&gt;&lt;div&gt;+ String email&lt;/div&gt;&lt;div&gt;+ String password&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-90" vertex="1">
           <mxGeometry y="26" width="150" height="124" as="geometry" />
         </mxCell>
         <mxCell id="hyd5x-qJ4TXRHwMhlFfb-105" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;strokeColor=#788AA3;fontColor=default;" parent="hyd5x-qJ4TXRHwMhlFfb-103" source="hyd5x-qJ4TXRHwMhlFfb-98" target="hyd5x-qJ4TXRHwMhlFfb-90" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="hyd5x-qJ4TXRHwMhlFfb-98" value="Entity - Transaction" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-103" vertex="1">
-          <mxGeometry x="325" y="150" width="150" height="150" as="geometry" />
+          <mxGeometry x="570" y="150" width="150" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="hyd5x-qJ4TXRHwMhlFfb-99" value="&lt;div&gt;+ Long id&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;+ BigDecimal amount&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;+ LocalDateTime date&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;+ String description&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;+ TransactionType type&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;+ Category category&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;+ User user&amp;nbsp; &amp;nbsp;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-98" vertex="1">
+        <mxCell id="hyd5x-qJ4TXRHwMhlFfb-99" value="&lt;div&gt;+ UUID id&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;+ BigDecimal amount&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;+ LocalDateTime date&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;+ String description&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;+ (E)TransactionType type&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;+ (E)Category category&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;+ User user&amp;nbsp; &amp;nbsp;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;fontSize=11;" parent="hyd5x-qJ4TXRHwMhlFfb-98" vertex="1">
           <mxGeometry y="26" width="150" height="124" as="geometry" />
         </mxCell>
         <mxCell id="hyd5x-qJ4TXRHwMhlFfb-106" value="1 *" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-103" vertex="1">
-          <mxGeometry x="230" y="195" width="60" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="hyd5x-qJ4TXRHwMhlFfb-107" value="* 1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-103" vertex="1">
-          <mxGeometry x="510" y="195" width="60" height="30" as="geometry" />
+          <mxGeometry x="370" y="195" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="hyd5x-qJ4TXRHwMhlFfb-108" value="DTOs" style="swimlane;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="920" y="40" width="800" height="800" as="geometry" />
+          <mxGeometry x="920" y="40" width="800" height="460" as="geometry" />
         </mxCell>
         <mxCell id="hyd5x-qJ4TXRHwMhlFfb-124" value="Requests" style="swimlane;horizontal=1;whiteSpace=wrap;html=1;strokeColor=#788AA3;fontColor=#46495D;fillColor=#B2C9AB;rotation=0;labelBackgroundColor=none;" parent="hyd5x-qJ4TXRHwMhlFfb-108" vertex="1">
-          <mxGeometry x="30" y="50" width="360" height="720" as="geometry" />
+          <mxGeometry x="30" y="50" width="360" height="380" as="geometry" />
         </mxCell>
         <mxCell id="hyd5x-qJ4TXRHwMhlFfb-113" value="TransactionRequest" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-124" vertex="1">
-          <mxGeometry x="20" y="380" width="150" height="150" as="geometry" />
+          <mxGeometry x="190" y="210" width="150" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="hyd5x-qJ4TXRHwMhlFfb-114" value="&lt;div&gt;+ BigDecimal amount&lt;/div&gt;&lt;div&gt;+ LocalDateTime date&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(29, 53, 87), rgb(176, 196, 226));&quot;&gt;+ String description&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(29, 53, 87), rgb(176, 196, 226));&quot;&gt;+ Long categoryId;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(29, 53, 87), rgb(176, 196, 226));&quot;&gt;+ TransactionType type&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-113" vertex="1">
-          <mxGeometry y="26" width="150" height="124" as="geometry" />
-        </mxCell>
-        <mxCell id="hyd5x-qJ4TXRHwMhlFfb-116" value="CategoryRequest" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-124" vertex="1">
-          <mxGeometry x="20" y="550" width="150" height="150" as="geometry" />
-        </mxCell>
-        <mxCell id="hyd5x-qJ4TXRHwMhlFfb-117" value="&lt;div&gt;+ String name&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(29, 53, 87), rgb(176, 196, 226));&quot;&gt;+ TransactionType type&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-116" vertex="1">
+        <mxCell id="hyd5x-qJ4TXRHwMhlFfb-114" value="&lt;div&gt;&lt;font style=&quot;color: rgb(70, 73, 93);&quot;&gt;+ BigDecimal amount&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font style=&quot;color: rgb(70, 73, 93);&quot;&gt;+ String description&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 11px;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font style=&quot;color: rgb(70, 73, 93);&quot;&gt;+ (E)TransactionType type&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;color: rgb(70, 73, 93);&quot;&gt;&lt;span style=&quot;background-color: transparent; font-size: 11px;&quot;&gt;+ (E)Category category&lt;/span&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-113" vertex="1">
           <mxGeometry y="26" width="150" height="124" as="geometry" />
         </mxCell>
         <mxCell id="hyd5x-qJ4TXRHwMhlFfb-111" value="UserSignInRequest" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-124" vertex="1">
@@ -74,31 +56,37 @@
           <mxGeometry y="26" width="150" height="124" as="geometry" />
         </mxCell>
         <mxCell id="hyd5x-qJ4TXRHwMhlFfb-125" value="Responses" style="swimlane;horizontal=1;whiteSpace=wrap;html=1;strokeColor=#788AA3;fontColor=#46495D;fillColor=#B2C9AB;rotation=0;labelBackgroundColor=none;" parent="hyd5x-qJ4TXRHwMhlFfb-108" vertex="1">
-          <mxGeometry x="410" y="50" width="360" height="720" as="geometry" />
+          <mxGeometry x="410" y="50" width="360" height="380" as="geometry" />
         </mxCell>
         <mxCell id="hyd5x-qJ4TXRHwMhlFfb-120" value="TransactionResponse" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-125" vertex="1">
-          <mxGeometry x="190" y="30" width="150" height="150" as="geometry" />
+          <mxGeometry x="190" y="200" width="150" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="hyd5x-qJ4TXRHwMhlFfb-121" value="&lt;div&gt;+ Long id&lt;/div&gt;&lt;div&gt;+ BigDecimal amount&lt;/div&gt;&lt;div&gt;+ LocalDateTime date&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(29, 53, 87), rgb(176, 196, 226));&quot;&gt;+ String description&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(29, 53, 87), rgb(176, 196, 226));&quot;&gt;+ Long categoryId&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(29, 53, 87), rgb(176, 196, 226));&quot;&gt;+ TransactionType type&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;+ CategoryResponse category&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;fontSize=10.3;" parent="hyd5x-qJ4TXRHwMhlFfb-120" vertex="1">
+        <mxCell id="hyd5x-qJ4TXRHwMhlFfb-121" value="&lt;div&gt;&lt;font style=&quot;color: rgb(70, 73, 93);&quot;&gt;+ UUID id&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;color: rgb(70, 73, 93);&quot;&gt;+ BigDecimal amount&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;color: rgb(70, 73, 93);&quot;&gt;+ LocalDateTime date&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font style=&quot;color: rgb(70, 73, 93);&quot;&gt;+ String description&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font style=&quot;color: rgb(70, 73, 93);&quot;&gt;+ (E)TransactionType type&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font style=&quot;color: rgb(70, 73, 93);&quot;&gt;+ (E)Category category&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;fontSize=11;" parent="hyd5x-qJ4TXRHwMhlFfb-120" vertex="1">
           <mxGeometry y="26" width="150" height="124" as="geometry" />
         </mxCell>
         <mxCell id="hyd5x-qJ4TXRHwMhlFfb-122" value="UserResponse" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-125" vertex="1">
-          <mxGeometry x="23" y="30" width="150" height="150" as="geometry" />
+          <mxGeometry x="20" y="30" width="150" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="hyd5x-qJ4TXRHwMhlFfb-123" value="&lt;div&gt;+ String id&lt;/div&gt;&lt;div&gt;+ String name&lt;/div&gt;&lt;div&gt;+ String email&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-122" vertex="1">
+        <mxCell id="hyd5x-qJ4TXRHwMhlFfb-123" value="&lt;div&gt;+ UUID id&lt;/div&gt;&lt;div&gt;+ String name&lt;/div&gt;&lt;div&gt;+ String email&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-122" vertex="1">
           <mxGeometry y="26" width="150" height="124" as="geometry" />
         </mxCell>
-        <mxCell id="hyd5x-qJ4TXRHwMhlFfb-118" value="CategoryResponse" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-125" vertex="1">
-          <mxGeometry x="190" y="200" width="150" height="150" as="geometry" />
+        <mxCell id="yOuDaemuKKtPbBflFrIY-0" value="UserSignInResponse" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="hyd5x-qJ4TXRHwMhlFfb-125">
+          <mxGeometry x="190" y="30" width="150" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="hyd5x-qJ4TXRHwMhlFfb-119" value="&lt;div&gt;+ Long id&lt;/div&gt;&lt;div&gt;+&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(29, 53, 87), rgb(176, 196, 226));&quot;&gt;String name&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(29, 53, 87), rgb(176, 196, 226));&quot;&gt;+ TransactionType type&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;" parent="hyd5x-qJ4TXRHwMhlFfb-118" vertex="1">
+        <mxCell id="yOuDaemuKKtPbBflFrIY-1" value="&lt;div&gt;+ UUID userId&lt;/div&gt;&lt;div&gt;+ String token&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;" vertex="1" parent="yOuDaemuKKtPbBflFrIY-0">
+          <mxGeometry y="26" width="150" height="124" as="geometry" />
+        </mxCell>
+        <mxCell id="yOuDaemuKKtPbBflFrIY-2" value="UserSignUpResponse" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="hyd5x-qJ4TXRHwMhlFfb-125">
+          <mxGeometry x="20" y="200" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="yOuDaemuKKtPbBflFrIY-3" value="&lt;div&gt;+ UUID userId&lt;/div&gt;&lt;div&gt;&lt;div&gt;+ String token;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;+ String name&lt;/div&gt;&lt;div&gt;+ String email&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;" vertex="1" parent="yOuDaemuKKtPbBflFrIY-2">
           <mxGeometry y="26" width="150" height="124" as="geometry" />
         </mxCell>
         <mxCell id="hyd5x-qJ4TXRHwMhlFfb-134" value="Services" style="swimlane;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1800" y="40" width="880" height="800" as="geometry" />
+          <mxGeometry x="1800" y="40" width="880" height="460" as="geometry" />
         </mxCell>
-        <mxCell id="1SfXspBUMooY1v84c70p-0" value="User" style="swimlane;horizontal=1;whiteSpace=wrap;html=1;strokeColor=#788AA3;fontColor=#46495D;fillColor=#B2C9AB;rotation=0;labelBackgroundColor=none;" vertex="1" parent="hyd5x-qJ4TXRHwMhlFfb-134">
-          <mxGeometry x="30" y="50" width="400" height="720" as="geometry" />
+        <mxCell id="1SfXspBUMooY1v84c70p-0" value="User" style="swimlane;horizontal=1;whiteSpace=wrap;html=1;strokeColor=#788AA3;fontColor=#46495D;fillColor=#B2C9AB;rotation=0;labelBackgroundColor=none;" parent="hyd5x-qJ4TXRHwMhlFfb-134" vertex="1">
+          <mxGeometry x="30" y="50" width="400" height="380" as="geometry" />
         </mxCell>
         <mxCell id="hyd5x-qJ4TXRHwMhlFfb-154" value="UserSignService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" parent="1SfXspBUMooY1v84c70p-0" vertex="1">
           <mxGeometry x="20" y="210" width="360" height="150" as="geometry" />
@@ -111,46 +99,27 @@
             <mxRectangle x="30" y="50" width="110" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="hyd5x-qJ4TXRHwMhlFfb-153" value="+ updateUser(String uud)&lt;div&gt;+ deleteUser(String uuid)&lt;br&gt;&lt;div&gt;+ updateProfile (UserUpdateRequestDTO)&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;fontSize=12;" parent="hyd5x-qJ4TXRHwMhlFfb-152" vertex="1">
+        <mxCell id="hyd5x-qJ4TXRHwMhlFfb-153" value="+ updateUser(UUID id)&lt;div&gt;+ deleteUser(UUID id)&lt;br&gt;&lt;div&gt;+ updateProfile (UserUpdateRequestDTO)&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;fontSize=12;" parent="hyd5x-qJ4TXRHwMhlFfb-152" vertex="1">
           <mxGeometry y="26" width="360" height="124" as="geometry" />
         </mxCell>
-        <mxCell id="1SfXspBUMooY1v84c70p-7" value="TransactionService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="1SfXspBUMooY1v84c70p-0">
-          <mxGeometry x="20" y="380" width="360" height="150" as="geometry">
-            <mxRectangle x="30" y="50" width="110" height="30" as="alternateBounds" />
-          </mxGeometry>
+        <mxCell id="1SfXspBUMooY1v84c70p-11" value="Transaction" style="swimlane;horizontal=1;whiteSpace=wrap;html=1;strokeColor=#788AA3;fontColor=#46495D;fillColor=#B2C9AB;rotation=0;labelBackgroundColor=none;" parent="hyd5x-qJ4TXRHwMhlFfb-134" vertex="1">
+          <mxGeometry x="450" y="50" width="400" height="380" as="geometry" />
         </mxCell>
-        <mxCell id="1SfXspBUMooY1v84c70p-8" value="+ addTransaction(TransactionRequestDTO, String userId)&lt;div&gt;+ getTransaction(Long id, String userId)&lt;/div&gt;&lt;div&gt;+ getAllTransaction(String userId)&lt;/div&gt;&lt;div&gt;+ updateTransaction(Long id, TransactionRequestDTO)&lt;/div&gt;&lt;div&gt;+ deleteTransaction(Long id)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;fontSize=12;" vertex="1" parent="1SfXspBUMooY1v84c70p-7">
-          <mxGeometry y="26" width="360" height="124" as="geometry" />
-        </mxCell>
-        <mxCell id="1SfXspBUMooY1v84c70p-9" value="TransactionService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="1SfXspBUMooY1v84c70p-0">
-          <mxGeometry x="20" y="550" width="360" height="150" as="geometry">
-            <mxRectangle x="30" y="50" width="110" height="30" as="alternateBounds" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="1SfXspBUMooY1v84c70p-10" value="+ addTransaction(TransactionRequestDTO, String userId)&lt;div&gt;+ getTransaction(Long id, String userId)&lt;/div&gt;&lt;div&gt;+ getAllTransaction(String userId)&lt;/div&gt;&lt;div&gt;+ updateTransaction(Long id, TransactionRequestDTO)&lt;/div&gt;&lt;div&gt;+ deleteTransaction(Long id)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;fontSize=12;" vertex="1" parent="1SfXspBUMooY1v84c70p-9">
-          <mxGeometry y="26" width="360" height="124" as="geometry" />
-        </mxCell>
-        <mxCell id="1SfXspBUMooY1v84c70p-11" value="Transaction" style="swimlane;horizontal=1;whiteSpace=wrap;html=1;strokeColor=#788AA3;fontColor=#46495D;fillColor=#B2C9AB;rotation=0;labelBackgroundColor=none;" vertex="1" parent="hyd5x-qJ4TXRHwMhlFfb-134">
-          <mxGeometry x="450" y="50" width="400" height="210" as="geometry" />
-        </mxCell>
-        <mxCell id="1SfXspBUMooY1v84c70p-16" value="TransactionService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="1SfXspBUMooY1v84c70p-11">
+        <mxCell id="1SfXspBUMooY1v84c70p-9" value="TransactionService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;fontSize=12;" parent="1SfXspBUMooY1v84c70p-11" vertex="1">
           <mxGeometry x="20" y="43" width="360" height="150" as="geometry">
             <mxRectangle x="30" y="50" width="110" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="1SfXspBUMooY1v84c70p-17" value="+ addTransaction(TransactionRequestDTO, String userId)&lt;div&gt;+ getTransaction(Long id, String userId)&lt;/div&gt;&lt;div&gt;+ getAllTransaction(String userId)&lt;/div&gt;&lt;div&gt;+ updateTransaction(Long id, TransactionRequestDTO)&lt;/div&gt;&lt;div&gt;+ deleteTransaction(Long id)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;fontSize=12;" vertex="1" parent="1SfXspBUMooY1v84c70p-16">
+        <mxCell id="1SfXspBUMooY1v84c70p-10" value="+ addTransaction(TransactionRequestDTO) &amp;lt;&amp;lt;Secured&amp;gt;&amp;gt;&lt;div&gt;+ getTransaction(UUID id)&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(70, 73, 93), rgb(170, 173, 190));&quot;&gt;&amp;lt;&amp;lt;Secured&amp;gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ getAllTransaction()&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(70, 73, 93), rgb(170, 173, 190));&quot;&gt;&amp;lt;&amp;lt;Secured&amp;gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ updateTransaction(UUID&amp;nbsp;id,&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(70, 73, 93), rgb(170, 173, 190));&quot;&gt;TransactionRequestDTO)&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(70, 73, 93), rgb(170, 173, 190));&quot;&gt;&amp;lt;&amp;lt;Secured&amp;gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ deleteTransaction(UUID&amp;nbsp;id&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(70, 73, 93), rgb(170, 173, 190));&quot;&gt;)&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(70, 73, 93), rgb(170, 173, 190));&quot;&gt;&amp;lt;&amp;lt;Secured&amp;gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;fontSize=11;" parent="1SfXspBUMooY1v84c70p-9" vertex="1">
           <mxGeometry y="26" width="360" height="124" as="geometry" />
         </mxCell>
-        <mxCell id="1SfXspBUMooY1v84c70p-29" value="Category" style="swimlane;horizontal=1;whiteSpace=wrap;html=1;strokeColor=#788AA3;fontColor=#46495D;fillColor=#B2C9AB;rotation=0;labelBackgroundColor=none;" vertex="1" parent="hyd5x-qJ4TXRHwMhlFfb-134">
-          <mxGeometry x="450" y="560" width="400" height="210" as="geometry" />
+        <mxCell id="yOuDaemuKKtPbBflFrIY-5" value="&amp;lt;&amp;lt;SECURED&amp;gt;&amp;gt;&lt;div&gt;getUserId() from security&lt;/div&gt;&lt;div&gt;context&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;align=center;verticalAlign=middle;strokeWidth=1;autosize=1;spacing=4;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;entityRelationEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;,&quot;segment&quot;:10,&quot;curved&quot;:1,&quot;sourcePerimeterSpacing&quot;:0,&quot;targetPerimeterSpacing&quot;:0};" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="2700" y="85" width="180" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="1SfXspBUMooY1v84c70p-30" value="CategoryService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="1SfXspBUMooY1v84c70p-29">
-          <mxGeometry x="20" y="40" width="360" height="150" as="geometry">
-            <mxRectangle x="30" y="50" width="110" height="30" as="alternateBounds" />
+        <mxCell id="yOuDaemuKKtPbBflFrIY-6" value="" style="edgeStyle=entityRelationEdgeStyle;startArrow=none;endArrow=none;segment=10;curved=1;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;rounded=0;" edge="1" target="yOuDaemuKKtPbBflFrIY-5" parent="WIyWlLk6GJQsqaUBKTNV-1" source="1SfXspBUMooY1v84c70p-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2240" y="330" as="sourcePoint" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="1SfXspBUMooY1v84c70p-31" value="+ addCategory(Category RequestDTO)&lt;div&gt;+ getCategory(Long id)&lt;/div&gt;&lt;div&gt;+ getAllCategories()&lt;/div&gt;&lt;div&gt;+ deleteTransaction(Long id)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#46495D;fontSize=12;" vertex="1" parent="1SfXspBUMooY1v84c70p-30">
-          <mxGeometry y="26" width="360" height="124" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
