@@ -1,10 +1,15 @@
 - [ ] GlobalExceptionHandler (@ControllerAdvice)
-- [ ] JWT
-- [ ] JWT implementation
 - [ ] PasswordEncoder
 - [ ] TransactionController
 - [ ] TransactionService
+- [ ] Roles and permissions
+- [ ] Refresh tokens
+- [ ] @Valid
+- [ ] Custom error messages
+- [ ] JUNIT for testing
 
+- [x] JWT
+- [x] JWT implementation
 - [x] UserController
 - [x] UserService
 - [x] Exceptions
