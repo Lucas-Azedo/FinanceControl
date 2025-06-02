@@ -3,10 +3,10 @@
 - [ ] JWT implementation
 - [ ] PasswordEncoder
 - [ ] TransactionController
-- [ ] UserController
-- [ ] UserService
 - [ ] TransactionService
 
+- [x] UserController
+- [x] UserService
 - [x] Exceptions
 - [x] Models
 - [x] DTOs
