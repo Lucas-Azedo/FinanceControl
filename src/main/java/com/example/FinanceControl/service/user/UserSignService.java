@@ -11,6 +11,7 @@ import com.example.FinanceControl.model.User;
 import com.example.FinanceControl.repository.UserRepository;
 import com.example.FinanceControl.security.TokenService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,7 +20,7 @@ public class UserSignService {
 
     private final UserService userService;
     private final UserRepository userRepository;
-
+    private final PasswordEncoder passwordEncoder;
     private final TokenService tokenService;
 
     public UserSignUpResponseDTO signUp(UserSignUpRequestDTO dto){
@@ -36,17 +37,13 @@ public class UserSignService {
         User user = userRepository.findByEmail(dto.getEmail())
                 .orElseThrow(() -> new EmailNotFoundException("E-mail nao encontrado. "));
 
-        // COMPARAÇÃO SIMPLES - TEMPORÁRIO (sem BCrypt)
-        if (!dto.getPassword().equals(user.getPassword())) {
-            throw new InvalidCredentialsException("Senha incorreta."); // ou crie InvalidCredentialsException
+
+        if (!passwordEncoder.matches(dto.getPassword(), user.getPassword())) {
+            throw new InvalidCredentialsException("Senha inválida.");
         }
 
-        //ADICIONAR BCRYPT PARA SEGURANCA
-        //if (!passwordEncoder.matches(dto.getPassword(), user.getPassword())) {
-        //    throw new InvalidCredentialsException("Senha inválida.");
-        //}
 
-        String token = tokenService.generateToken(user); // JWT no futuro
+        String token = tokenService.generateToken(user);
         return new UserSignInResponseDTO(user.getId(), token);
     }
 

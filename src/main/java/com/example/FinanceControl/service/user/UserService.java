@@ -9,6 +9,7 @@ import com.example.FinanceControl.model.User;
 import com.example.FinanceControl.repository.UserRepository;
 import com.example.FinanceControl.security.TokenService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +20,7 @@ import java.util.UUID;
 public class UserService {
 
     private final UserRepository userRepository;
-
+    private final PasswordEncoder passwordEncoder;
     private final TokenService tokenService;
 
     public UserSignUpResponseDTO createUser(UserRequestDTO dto){
@@ -30,15 +31,11 @@ public class UserService {
         User user = new User();
         user.setName(dto.getName());
         user.setEmail(dto.getEmail());
-
-        //TEMPORARIO - REMOVER APOS ADICAO DE BYCRPT
-        user.setPassword(dto.getPassword());
-
-        // user.setPassword(passwordEncoder.encode(dto.getPassword()));
+        user.setPassword(passwordEncoder.encode(dto.getPassword()));
 
         user = userRepository.save(user);
 
-        String token = tokenService.generateToken(user); // JWT no futuro
+        String token = tokenService.generateToken(user);
 
         return new UserSignUpResponseDTO(user.getId(), token, user.getName(), user.getEmail());
     }
