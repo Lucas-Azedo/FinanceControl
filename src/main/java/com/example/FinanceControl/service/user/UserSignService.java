@@ -3,19 +3,15 @@ package com.example.FinanceControl.service.user;
 import com.example.FinanceControl.dto.request.UserRequestDTO;
 import com.example.FinanceControl.dto.request.UserSignInRequestDTO;
 import com.example.FinanceControl.dto.request.UserSignUpRequestDTO;
-import com.example.FinanceControl.dto.response.UserResponseDTO;
 import com.example.FinanceControl.dto.response.UserSignInResponseDTO;
 import com.example.FinanceControl.dto.response.UserSignUpResponseDTO;
-import com.example.FinanceControl.exception.EmailAlreadyExistsException;
 import com.example.FinanceControl.exception.EmailNotFoundException;
 import com.example.FinanceControl.exception.InvalidCredentialsException;
 import com.example.FinanceControl.model.User;
 import com.example.FinanceControl.repository.UserRepository;
-import com.example.FinanceControl.service.TokenService;
+import com.example.FinanceControl.security.TokenService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor

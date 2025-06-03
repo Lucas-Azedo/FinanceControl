@@ -1,7 +1,7 @@
-package com.example.FinanceControl.config;
+package com.example.FinanceControl.security;
 
+import com.example.FinanceControl.model.User;
 import com.example.FinanceControl.repository.UserRepository;
-import com.example.FinanceControl.service.TokenService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -41,10 +41,11 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
         if (userIdStr != null) {
             UUID userId = UUID.fromString(userIdStr);
-            var user = userRepository.findById(userId).orElse(null);
+            User user = userRepository.findById(userId).orElse(null);
 
             if (user != null) {
-                var auth = new UsernamePasswordAuthenticationToken(user, null, null);
+                UserAuthenticated userAuthenticated = new UserAuthenticated(user);
+                UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(userAuthenticated, null, userAuthenticated.getAuthorities());
                 auth.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(auth);
             }
