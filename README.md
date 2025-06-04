@@ -22,6 +22,12 @@ Application for personal financial management using transactions; with authentic
 - [ ] Custom error messages
 - [ ] JUNIT for testing
 - [ ] Data graphs
+- [ ] @Slf4j
+- [ ] Docker
+- [ ] Postman
+- [ ] Swagger
+- [ ] Export (PDF)
+- [ ] Token Invalidation
 
 ### Done
 - [x] PasswordEncoder
