@@ -23,4 +23,6 @@ public class TransactionResponseDTO {
 
     @Enumerated(EnumType.STRING)
     private TransactionCategory category;
+
+
 }

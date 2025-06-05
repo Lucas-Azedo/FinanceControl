@@ -7,14 +7,17 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private UUID id;
     private String name;
     private BigDecimal amount;
     private LocalDateTime date;
