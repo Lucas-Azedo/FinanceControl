@@ -14,8 +14,6 @@ Application for personal financial management using transactions; with authentic
 ## Update Checklist
 ### Needs
 - [ ] GlobalExceptionHandler (@ControllerAdvice)
-- [ ] TransactionController
-- [ ] TransactionService
 - [ ] Roles and permissions
 - [ ] Refresh tokens
 - [ ] @Valid
@@ -30,6 +28,8 @@ Application for personal financial management using transactions; with authentic
 - [ ] Token Invalidation
 
 ### Done
+- [x] TransactionController
+- [x] TransactionService
 - [x] PasswordEncoder
 - [x] JWT
 - [x] JWT implementation
