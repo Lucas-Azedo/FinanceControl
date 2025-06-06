@@ -1,4 +1,4 @@
-package com.example.FinanceControl.dto.request;
+package com.example.FinanceControl.dto.request.userUpdate;
 
 import lombok.*;
 

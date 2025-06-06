@@ -1,7 +1,7 @@
 package com.example.FinanceControl.controller;
 
-import com.example.FinanceControl.dto.request.UserSignInRequestDTO;
-import com.example.FinanceControl.dto.request.UserSignUpRequestDTO;
+import com.example.FinanceControl.dto.request.userSign.UserSignInRequestDTO;
+import com.example.FinanceControl.dto.request.userSign.UserSignUpRequestDTO;
 import com.example.FinanceControl.dto.response.UserSignInResponseDTO;
 import com.example.FinanceControl.dto.response.UserSignUpResponseDTO;
 import com.example.FinanceControl.service.user.UserSignService;

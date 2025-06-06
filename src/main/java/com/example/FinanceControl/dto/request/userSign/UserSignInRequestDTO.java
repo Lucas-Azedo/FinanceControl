@@ -1,11 +1,11 @@
-package com.example.FinanceControl.dto.request;
+package com.example.FinanceControl.dto.request.userSign;
 
 import lombok.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserUpdateEmailRequestDTO {
+public class UserSignInRequestDTO {
     private String email;
     private String password;
 }
