@@ -14,7 +14,6 @@ Application for personal financial management using transactions; with authentic
 ## Update Checklist
 ### Needs
 - [ ] GlobalExceptionHandler (@ControllerAdvice)
-- [ ] Roles and permissions
 - [ ] Refresh tokens
 - [ ] @Valid
 - [ ] Custom error messages
@@ -26,8 +25,11 @@ Application for personal financial management using transactions; with authentic
 - [ ] Swagger
 - [ ] Export (PDF)
 - [ ] Token Invalidation
+- [ ] Permissions
+- [ ] UserUpdate Service
 
 ### Done
+- [x] Roles
 - [x] TransactionController
 - [x] TransactionService
 - [x] PasswordEncoder
