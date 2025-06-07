@@ -1,5 +1,6 @@
 package com.example.FinanceControl.controller;
 
+import com.example.FinanceControl.dto.request.userUpdate.UserUpdateRoleRequestDTO;
 import com.example.FinanceControl.dto.response.UserResponseDTO;
 import com.example.FinanceControl.service.user.UserService;
 import lombok.RequiredArgsConstructor;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/admin/users")
 @RequiredArgsConstructor
 public class UserController {
 
@@ -24,6 +25,12 @@ public class UserController {
     @GetMapping("/{id}")
     public ResponseEntity<UserResponseDTO> getUserById(@PathVariable UUID id){
         return ResponseEntity.ok(userService.getUserById(id));
+    }
+
+    @PutMapping("/{id}/role")
+    public ResponseEntity<Void> changeUserRole(@PathVariable UUID id, @RequestBody UserUpdateRoleRequestDTO dto) {
+        userService.changeUserRole(id, dto.getRoleName());
+        return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("/{id}")

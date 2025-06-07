@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -55,13 +56,17 @@ public class UserService {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new IdNotFoundException("Id nao encontrado"));
 
-       return new UserResponseDTO(user.getId(), user.getName(), user.getEmail());
+        return new UserResponseDTO(user.getId(), user.getName(), user.getEmail(), getRoleNames(user));
     }
 
-    public List<UserResponseDTO> getAllUsers(){
+    public List<UserResponseDTO> getAllUsers() {
         return userRepository.findAll()
                 .stream()
-                .map(user -> new UserResponseDTO(user.getId(), user.getName(), user.getEmail()))
+                .map(user -> new UserResponseDTO(
+                        user.getId(),
+                        user.getName(),
+                        user.getEmail(),
+                        getRoleNames(user)))
                 .toList();
     }
 
@@ -81,5 +86,12 @@ public class UserService {
 
         user.setRoles(Set.of(newRole));
         userRepository.save(user);
+    }
+
+    private Set<String> getRoleNames(User user) {
+        return user.getRoles()
+                .stream()
+                .map(Role::getName)
+                .collect(Collectors.toSet());
     }
 }
