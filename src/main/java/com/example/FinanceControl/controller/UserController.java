@@ -3,6 +3,7 @@ package com.example.FinanceControl.controller;
 import com.example.FinanceControl.dto.request.userUpdate.UserUpdateRoleRequestDTO;
 import com.example.FinanceControl.dto.response.UserResponseDTO;
 import com.example.FinanceControl.service.user.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +29,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}/role")
-    public ResponseEntity<Void> changeUserRole(@PathVariable UUID id, @RequestBody UserUpdateRoleRequestDTO dto) {
+    public ResponseEntity<Void> changeUserRole(@PathVariable UUID id, @Valid @RequestBody UserUpdateRoleRequestDTO dto ) {
         userService.changeUserRole(id, dto.getRoleName());
         return ResponseEntity.noContent().build();
     }

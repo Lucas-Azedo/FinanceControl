@@ -2,7 +2,7 @@ package com.example.FinanceControl.service.transaction;
 
 import com.example.FinanceControl.dto.request.TransactionRequestDTO;
 import com.example.FinanceControl.dto.response.TransactionResponseDTO;
-import com.example.FinanceControl.exception.IdNotFoundException;
+import com.example.FinanceControl.exception.businessExceptions.IdNotFoundException;
 import com.example.FinanceControl.model.Transaction;
 import com.example.FinanceControl.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;

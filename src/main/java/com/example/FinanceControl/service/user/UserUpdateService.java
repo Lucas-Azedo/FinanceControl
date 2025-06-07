@@ -4,9 +4,9 @@ import com.example.FinanceControl.dto.request.userUpdate.UserUpdateEmailRequestD
 import com.example.FinanceControl.dto.request.userUpdate.UserUpdateNameRequestDTO;
 import com.example.FinanceControl.dto.request.userUpdate.UserUpdatePasswordRequestDTO;
 import com.example.FinanceControl.dto.request.userUpdate.UserUpdateRoleRequestDTO;
-import com.example.FinanceControl.exception.EmailNotFoundException;
-import com.example.FinanceControl.exception.InvalidPasswordException;
-import com.example.FinanceControl.exception.RoleNotFoundException;
+import com.example.FinanceControl.exception.businessExceptions.EmailNotFoundException;
+import com.example.FinanceControl.exception.businessExceptions.InvalidPasswordException;
+import com.example.FinanceControl.exception.businessExceptions.RoleNotFoundException;
 import com.example.FinanceControl.model.Role;
 import com.example.FinanceControl.model.User;
 import com.example.FinanceControl.repository.RoleRepository;

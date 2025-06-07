@@ -13,7 +13,7 @@ Application for personal financial management using transactions; with authentic
 
 ## Update Checklist
 ### Needs
-- [ ] GlobalExceptionHandler (@ControllerAdvice)
+- [ ] com.example.FinanceControl.GlobalExceptionHandler (@ControllerAdvice)
 - [ ] Refresh tokens
 - [ ] @Valid
 - [ ] Custom error messages

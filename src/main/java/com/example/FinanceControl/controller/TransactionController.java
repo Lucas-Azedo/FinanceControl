@@ -3,6 +3,7 @@ package com.example.FinanceControl.controller;
 import com.example.FinanceControl.dto.request.TransactionRequestDTO;
 import com.example.FinanceControl.dto.response.TransactionResponseDTO;
 import com.example.FinanceControl.service.transaction.TransactionService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ public class TransactionController {
     private final TransactionService transactionService;
 
     @PostMapping
-    public ResponseEntity<TransactionResponseDTO> createTransaction(@RequestBody TransactionRequestDTO dto){
+    public ResponseEntity<TransactionResponseDTO> createTransaction(@RequestBody @Valid TransactionRequestDTO dto){
         return ResponseEntity.ok(transactionService.createTransaction(dto));
     }
 
