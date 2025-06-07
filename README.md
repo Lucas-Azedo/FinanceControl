@@ -24,11 +24,11 @@ Application for personal financial management using transactions; with authentic
 - [ ] Postman
 - [ ] Swagger
 - [ ] Export (PDF)
-- [ ] Token Invalidation
-- [ ] Permissions
-- [ ] UserUpdate Service
 
 ### Done
+- [x] Token Invalidation
+- [x] Permissions
+- [x] UserUpdate Service
 - [x] Roles
 - [x] TransactionController
 - [x] TransactionService
