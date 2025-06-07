@@ -13,10 +13,7 @@ Application for personal financial management using transactions; with authentic
 
 ## Update Checklist
 ### Needs
-- [ ] com.example.FinanceControl.GlobalExceptionHandler (@ControllerAdvice)
 - [ ] Refresh tokens
-- [ ] @Valid
-- [ ] Custom error messages
 - [ ] JUNIT for testing
 - [ ] Data graphs
 - [ ] @Slf4j
@@ -24,11 +21,14 @@ Application for personal financial management using transactions; with authentic
 - [ ] Postman
 - [ ] Swagger
 - [ ] Export (PDF)
-- [ ] Token Invalidation
-- [ ] Permissions
-- [ ] UserUpdate Service
 
 ### Done
+- [x] GlobalExceptionHandler (@ControllerAdvice)
+- [x] @Valid
+- [x] Custom error messages
+- [x] Token Invalidation
+- [x] Permissions
+- [x] UserUpdate Service
 - [x] Roles
 - [x] TransactionController
 - [x] TransactionService
