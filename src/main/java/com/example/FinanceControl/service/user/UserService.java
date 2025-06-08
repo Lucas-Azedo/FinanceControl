@@ -15,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -43,7 +44,7 @@ public class UserService {
         user.setName(dto.getName());
         user.setEmail(dto.getEmail());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
-        user.setRoles(Set.of(defaultRole));
+        user.setRoles(new HashSet<>(Set.of(defaultRole))); // mutável
 
         user = userRepository.save(user);
 
@@ -84,7 +85,9 @@ public class UserService {
         Role newRole = roleRepository.findByName(roleName)
                 .orElseThrow(() -> new RoleNotFoundException("Role não encontrada"));
 
-        user.setRoles(Set.of(newRole));
+        Set<Role> roles = new HashSet<>();
+        roles.add(newRole);
+        user.setRoles(roles);
         userRepository.save(user);
     }
 
