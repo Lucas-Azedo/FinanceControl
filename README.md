@@ -1,44 +1,104 @@
 # FinanceControl
 Application for personal financial management using transactions; with authentication functionalities and user management.
 
-## Tools Used:
+![Java](https://img.shields.io/badge/Java-21-blue)
+![Spring Boot](https://img.shields.io/badge/Spring--Boot-3.1-green)
+![MySQL](https://img.shields.io/badge/MySQL-Database-informational)
+![License](https://img.shields.io/badge/license-MIT-brightgreen)
+![Build](https://img.shields.io/badge/build-passing-success)
 
-<div style="display: flex; gap: 30px;">
-<img height="150" src="https://github.com/user-attachments/assets/a840e26c-3ba3-46ab-8a40-10022da8cd30" alt="Spring Boot" />
-<img height="150" src="https://github.com/user-attachments/assets/32d52b01-65c7-46f9-8983-1bbc8b93ea82" alt="JWT" />
-<img height="150" src="https://github.com/user-attachments/assets/63a18483-a813-4593-b5ac-740c88b4c4ad" alt="MySQL" />
-<img height="150" src="https://github.com/user-attachments/assets/3b58896e-23c5-47ba-a076-3264b7cce7ad" alt="Hibernate" />
-<img height="150" src="https://github.com/user-attachments/assets/f714d4fb-aca7-428a-93bd-a11d4338f77e" alt="Lombok" /> </div>
+ ---
 
+## 🔧 Tech Stack
 
-## Update Checklist
-### Needs
+- **Java 21 + Spring Boot**
+- **JWT** for authentication
+- **Hibernate + JPA** for database connection
+- **MySQL** database
+- **Lombok** for eliminating boilerplate code
+- **Swagger** for API docs
+- **Postman** for testing
+
+ ---
+ 
+## Backend Update Checklist
+### 🚧 Needs
 - [ ] JUNIT for testing
 - [ ] Data graphs
 - [ ] @Slf4j
 - [ ] Docker
 - [ ] Export (PDF)
+- [ ] Endpoints for Graphs (transactions/summary , transactions/by-category , transactions/monthly);
+- [ ] CORS config
+- [ ] Pagination for Listing (?page=0&size=10&sort=date,desc.)
 
-### Done
+### ✅ Done
+#### 🔐 Authentication and Authorizatiom
 - [x] Refresh tokens
-- [x] Postman
-- [x] Swagger
+- [x] Token Invalidation
+- [x] JWT
+- [x] JWT implementation
+- [x] PasswordEncoder
+- [x] Permissions
+- [x] Roles
+
+#### 📦 Exceptions and Enums
 - [x] GlobalExceptionHandler (@ControllerAdvice)
 - [x] @Valid
 - [x] Custom error messages
-- [x] Token Invalidation
-- [x] Permissions
-- [x] UserUpdate Service
-- [x] Roles
-- [x] TransactionController
-- [x] TransactionService
-- [x] PasswordEncoder
-- [x] JWT
-- [x] JWT implementation
-- [x] UserController
-- [x] UserService
 - [x] Exceptions
+
+#### 👤 Entity Management
 - [x] Models
 - [x] DTOs
 - [x] Enums
 - [x] Repositories
+- [x] UserController
+- [x] UserService
+- [x] UserUpdate Service
+- [x] TransactionController
+- [x] TransactionService
+      
+#### 🛠 Others
+- [x] Postman
+- [x] Swagger
+
+ ---
+
+## Frontend Update Checklist
+### Needs
+#### 🔐 Authentication (JWT)
+- [ ] Login screen
+- [ ] Integration with backend for authentication
+- [ ] Secure storage of JWT token (e.g., localStorage or sessionStorage)
+- [ ] Route protection based on authentication
+- [ ] Logout (token removal and redirection)
+
+#### 💸 Transaction Management
+- [ ] Transaction list for the logged-in user
+- [ ] Add new transaction (income/expense)
+- [ ] Edit existing transactions
+- [ ] Delete transactions
+- [ ] Filtering and sorting (by date, type, amount, etc.)
+
+#### 👥 User Management (Admin)
+- [ ] User listing screen
+- [ ] Create new user (admin only)
+- [ ] Edit user data
+- [ ] Delete users
+- [ ] Role and permission control (admin/user)
+
+#### 🧑 Profile Update (User Self-Service)
+- [ ] User profile screen
+- [ ] Edit personal information (name, email, password, etc.)
+- [ ] Form validation
+- [ ] Visual feedback on success/error
+
+#### 🖥️ General UI/UX
+- [ ] Responsive design (mobile-first)
+- [ ] Reusable components
+- [ ] Loading indicators
+- [ ] Clear error/success messages
+- [ ] Light/Dark theme support (optional)
+
+### ✅ Done
