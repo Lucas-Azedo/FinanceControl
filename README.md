@@ -13,7 +13,6 @@ Application for personal financial management using transactions; with authentic
 
 ## Update Checklist
 ### Needs
-- [ ] Refresh tokens
 - [ ] JUNIT for testing
 - [ ] Data graphs
 - [ ] @Slf4j
@@ -21,6 +20,7 @@ Application for personal financial management using transactions; with authentic
 - [ ] Export (PDF)
 
 ### Done
+- [x] Refresh tokens
 - [x] Postman
 - [x] Swagger
 - [x] GlobalExceptionHandler (@ControllerAdvice)
