@@ -1,0 +1,38 @@
+<template>
+  <div id="login" class="all">
+    <h1>SignUp</h1>
+    <input v-model="name" placeholder="Name" />
+    <input v-model="email" placeholder="E-mail" />
+    <input v-model="password" placeholder="Password" type="password" />
+    <button @click="signUp">Cadastrar</button>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const name = ref('')
+const email = ref('')
+const password = ref('')
+
+async function signUp() {
+  try {
+    const response = await fetch('http://localhost:8080/auth/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: name.value,
+        email: email.value,
+        password: password.value
+      })
+    })
+
+    if (!response.ok) throw new Error('Erro ao cadastrar')
+
+    const data = await response.json()
+    console.log('Usuário cadastrado!', data)
+  } catch (error) {
+    console.error('Erro no signup:', error)
+  }
+}
+</script>
