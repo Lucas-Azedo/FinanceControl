@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import Signup from './components/SignUp.vue'
+import SignUp from './components/SignUp.vue'
+import SignIn from './components/SignIn.vue'
 </script>
 
 <template>
   <div> 
-    <Signup />
+    <SignUp />
+    <SignIn />
   </div>
 </template>
 

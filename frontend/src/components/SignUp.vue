@@ -27,12 +27,17 @@ async function signUp() {
       })
     })
 
-    if (!response.ok) throw new Error('Erro ao cadastrar')
+    const data = await response.json() 
 
-    const data = await response.json()
+     if (!response.ok) {
+      console.error('Erro do backend:', data)
+      throw new Error(data.message || 'Erro ao cadastrar')
+    }
+
     console.log('Usuário cadastrado!', data)
+
   } catch (error) {
-    console.error('Erro no signup:', error)
+    console.error('Erro no signIn:', error)
   }
 }
 </script>
