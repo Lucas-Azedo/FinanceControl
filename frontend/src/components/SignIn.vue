@@ -9,6 +9,9 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useAuth } from '../composables/useAuth'
+
+const { setToken } = useAuth()
 
     const email = ref('')
     const password = ref('')
@@ -31,7 +34,9 @@ import { ref } from 'vue';
             throw new Error(data.message || 'Erro ao cadastrar')
         }
 
+        setToken(data.token)
         console.log("Usuario logado!", data)
+
         }catch(error){
             console.error('Erro no signIn:', error)
         }
