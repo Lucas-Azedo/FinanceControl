@@ -29,7 +29,6 @@ Application for personal financial management using transactions; with authentic
 - [ ] Docker
 - [ ] Export (PDF)
 - [ ] Endpoints for Graphs (transactions/summary , transactions/by-category , transactions/monthly);
-- [ ] CORS config
 - [ ] Pagination for Listing (?page=0&size=10&sort=date,desc.)
 
 ### ✅ Done
@@ -41,6 +40,7 @@ Application for personal financial management using transactions; with authentic
 - [x] PasswordEncoder
 - [x] Permissions
 - [x] Roles
+- [x] CORS config
 
 #### 📦 Exceptions and Enums
 - [x] GlobalExceptionHandler (@ControllerAdvice)
@@ -68,8 +68,6 @@ Application for personal financial management using transactions; with authentic
 ## Frontend Update Checklist
 ### Needs
 #### 🔐 Authentication (JWT)
-- [ ] Login screen
-- [ ] Integration with backend for authentication
 - [ ] Secure storage of JWT token (e.g., localStorage or sessionStorage)
 - [ ] Route protection based on authentication
 - [ ] Logout (token removal and redirection)
@@ -102,3 +100,6 @@ Application for personal financial management using transactions; with authentic
 - [ ] Light/Dark theme support (optional)
 
 ### ✅ Done
+#### 🔐 Authentication (JWT)
+- [x] Login screen
+- [x] Integration with backend for authentication
