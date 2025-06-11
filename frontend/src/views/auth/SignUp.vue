@@ -1,11 +1,20 @@
 <template>
 	<div id="login" class="all">
 		<h1>SignUp</h1>
-		<input v-model="name" placeholder="Name" />
-		<input v-model="email" placeholder="E-mail" />
-		<input v-model="password" placeholder="Password" type="password" />
-		<button @click="signUp">Cadastrar</button>
-		<button @click="signIn()">Logar</button>
+
+    <div v-if="errorMessages.length" class ="errors">
+      <ul>
+        <li v-for="(err, i) in errorMessages" :key="i">{{ err }}</li>
+      </ul>
+    </div>
+
+    <div>
+      <input v-model="name" placeholder="Name" />
+      <input v-model="email" placeholder="E-mail" />
+      <input v-model="password" placeholder="Password" type="password" />
+      <button @click="signUp">Cadastrar</button>
+      <button @click="signIn()">Logar</button>
+    </div>
   </div>
 </template>
 
@@ -17,11 +26,15 @@ import { useNavigation } from '../../composables/useNavigation'
 const { setToken } = useAuth()
 const { redirect } = useNavigation()
 
+
 const name = ref('')
 const email = ref('')
 const password = ref('')
 
+const errorMessages = ref([])
+
 async function signUp() {
+
 	try {
 		const response = await fetch('http://localhost:8080/auth/signup', {
 			method: 'POST',
@@ -35,15 +48,21 @@ async function signUp() {
 
 		const data = await response.json()
 
-		if (!response.ok) {
-			console.error('Erro do backend:', data)
-			throw new Error(data.message || 'Erro ao cadastrar')
-		}
+    if (response.ok) {
+      setToken(data.token)
+      redirect('/dashboard')
+      return
+    }
 
-		setToken(data.token)
-		redirect('/dashboard')
+    errorMessages.value = []
+    const fieldErrors = data.fields && Object.values(data.fields)
+    const arrayErrors = Array.isArray(data.errors) && data.errors
+    const fallbackError = data.message || 'Erro desconhecido'
+
+    errorMessages.value = fieldErrors || arrayErrors || [fallbackError]
+		
 	} catch (error) {
-		console.error('Erro no signIn:', error)
+		errorMessages.value = ['Erro de rede ou servidor indisponível. Tente novamente mais tarde.']
 	}
 }
 

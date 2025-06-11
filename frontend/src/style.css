@@ -13,8 +13,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-all{
+.all{
   text-align: center;
+}
+
+.errors{
+  color: red;
+  list-style: none;
+}
+
+.errors ul {
+  list-style: none;
+  padding-left: 0;
 }
 
 a {
