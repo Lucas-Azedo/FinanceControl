@@ -1,19 +1,21 @@
 <template>
-	<div id="login" class="all">
-		<h1>SignUp</h1>
+  <div id="login" class="login-page">
+    <div class="login-card">
+		  <h1>Create your account in <span class="brand">FinanceControl</span></h1>
 
-    <div v-if="errorMessages.length" class ="errors">
-      <ul>
-        <li v-for="(err, i) in errorMessages" :key="i">{{ err }}</li>
-      </ul>
-    </div>
+      <div v-if="errorMessages.length" class ="errors">
+        <ul>
+          <li v-for="(err, i) in errorMessages" :key="i">{{ err }}</li>
+        </ul>
+      </div>
 
-    <div>
-      <input v-model="name" placeholder="Name" />
-      <input v-model="email" placeholder="E-mail" />
-      <input v-model="password" placeholder="Password" type="password" />
-      <button @click="signUp">Cadastrar</button>
-      <button @click="signIn">Logar</button>
+      <div class="form">
+        <input v-model="name" placeholder="Name" type="text" autocomplete="name" />
+        <input v-model="email" placeholder="E-mail" type="text" autocomplete="email"/>
+        <input v-model="password" placeholder="Password" type="password" autocomplete="new-password"/>
+        <button @click="signUp"  class="primary">Sign Up</button>
+        <button @click="signIn"  class="seciondary">Log in</button>
+      </div>
     </div>
   </div>
 </template>

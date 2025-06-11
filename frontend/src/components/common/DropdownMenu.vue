@@ -1,11 +1,13 @@
 <template>
-    <div class="relative">
-    <button @click="toggleMenu">Menu</button>
-    <div v-if="showMenu" class="absolute bg-white border mt-2 p-2">
-      <ul>
-        <li><button @click="goToProfile">Ver Perfil</button></li>
-        <li><button @click="handleLogout">Logout</button></li>
-      </ul>
+    <div class="header">
+      <div class="menu-container">
+      <button @click="toggleMenu">Menu</button>
+      <div v-if="showMenu" class="dropdown">
+        <ul>
+          <li><button @click="goToProfile">Ver Perfil</button></li>
+          <li><button @click="handleLogout">Logout</button></li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -30,5 +32,6 @@ const showMenu = ref(false)
   function handleLogout() {
       showMenu.value = false
       logout()
+      redirect('/signin')
   }
 </script>
