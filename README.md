@@ -68,8 +68,6 @@ Application for personal financial management using transactions; with authentic
 ## Frontend Update Checklist
 ### Needs
 #### 🔐 Authentication (JWT)
-- [ ] Secure storage of JWT token (e.g., localStorage or sessionStorage)
-- [ ] Route protection based on authentication
 - [ ] Logout (token removal and redirection)
 
 #### 💸 Transaction Management
@@ -103,3 +101,5 @@ Application for personal financial management using transactions; with authentic
 #### 🔐 Authentication (JWT)
 - [x] Login screen
 - [x] Integration with backend for authentication
+- [x] Secure storage of JWT token (e.g., localStorage or sessionStorage)
+- [x] Route protection based on authentication
