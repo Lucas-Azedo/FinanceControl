@@ -5,13 +5,19 @@
         <input v-model="password" placeholder="Password" type="password" />
         <button @click="signIn">Logar</button>
     </div>
+
+    <div>
+        <button @click="signUp">Cadastrar</button>
+    </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import { useAuth } from '../composables/useAuth'
+import { useAuth } from '../../composables/useAuth'
+import { useNavigation } from '../../composables/useNavigation'
 
 const { setToken } = useAuth()
+const { redirect } = useNavigation()
 
     const email = ref('')
     const password = ref('')
@@ -37,9 +43,15 @@ const { setToken } = useAuth()
         setToken(data.token)
         console.log("Usuario logado!", data)
 
+        redirect('/dashboard')
+
         }catch(error){
             console.error('Erro no signIn:', error)
         }
+    }
+
+    function signUp(){
+        redirect('/signup')
     }
 
 </script>

@@ -9,7 +9,6 @@ export function useAuth() {
         localStorage.setItem('token', newToken)
     }
 
-
     function getToken() {
         return token.value
     }

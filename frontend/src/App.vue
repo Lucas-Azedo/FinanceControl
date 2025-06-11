@@ -1,13 +1,8 @@
 <script setup lang="ts">
-import SignUp from './components/SignUp.vue'
-import SignIn from './components/SignIn.vue'
 </script>
 
 <template>
-  <div> 
-    <SignUp />
-    <SignIn />
-  </div>
+  <router-view />
 </template>
 
 <style scoped>
