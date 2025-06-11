@@ -1,6 +1,9 @@
 import { ref } from 'vue';
+import { useNavigation } from '../composables/useNavigation'
+
 
 const token = ref(localStorage.getItem('token'))
+const { redirect } = useNavigation()
 
 export function useAuth() {
 
@@ -16,6 +19,7 @@ export function useAuth() {
     function logout() {
         token.value = null
         localStorage.removeItem('token')
+        redirect('/signin')
     }
 
     function isAuthenticated() {

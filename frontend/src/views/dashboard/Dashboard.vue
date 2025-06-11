@@ -1,4 +1,7 @@
 <template>
-    <p>oi</p>
+    <DropdownMenu/>
 </template>
-<script lang="ts"></script>
+<script setup lang="ts">
+import DropdownMenu from '../../components/common/DropdownMenu.vue'
+
+</script>

@@ -55,8 +55,8 @@ const router = createRouter({
 router.beforeEach( function (to, from, next) {
   const { isAuthenticated } = useAuth();
 
-  if(to.meta.requiresAuth && !isAuthenticated){
-    next('/login')
+  if(to.meta.requiresAuth && !isAuthenticated()){
+    next('/signin')
   }else{
     next();
   }

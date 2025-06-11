@@ -13,7 +13,7 @@
       <input v-model="email" placeholder="E-mail" />
       <input v-model="password" placeholder="Password" type="password" />
       <button @click="signUp">Cadastrar</button>
-      <button @click="signIn()">Logar</button>
+      <button @click="signIn">Logar</button>
     </div>
   </div>
 </template>
