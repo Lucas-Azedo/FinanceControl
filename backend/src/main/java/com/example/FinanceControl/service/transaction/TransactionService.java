@@ -13,6 +13,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -30,6 +31,7 @@ public class TransactionService {
 
         transaction.setAmount(dto.getAmount());
         transaction.setDescription(dto.getDescription());
+        transaction.setDate(LocalDateTime.now());
         transaction.setType(dto.getType());
         transaction.setCategory(dto.getCategory());
         transaction.setUser(user);

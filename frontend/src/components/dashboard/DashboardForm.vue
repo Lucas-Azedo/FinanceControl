@@ -36,6 +36,7 @@ const category = ref('')
 
 const token = localStorage.getItem('token')
 
+const emit = defineEmits(['transaction-added'])
 const errorMessages = ref([])
 
 async function submitTransaction() {
@@ -57,6 +58,8 @@ async function submitTransaction() {
 
         if(response.ok){
             console.log("Transação efetuada com sucesso!")
+            clearForm()
+            emit('transaction-added')
             return
         }
 
@@ -70,6 +73,13 @@ async function submitTransaction() {
     }catch(error){
         console.error('Erro no signIn:', error)
     }
+}
+
+function clearForm() {
+  amount.value = ''
+  description.value = ''
+  transactionType.value = ''
+  category.value = ''
 }
 
 const categories = computed(() => {
