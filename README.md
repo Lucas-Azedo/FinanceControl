@@ -30,6 +30,8 @@ Application for personal financial management using transactions; with authentic
 - [ ] Export (PDF)
 - [ ] Endpoints for Graphs (transactions/summary , transactions/by-category , transactions/monthly);
 - [ ] Pagination for Listing (?page=0&size=10&sort=date,desc.)
+- [ ] PUT methods for all Services and Controllers
+- [ ] Refactor UserUpdateService to use both request and response DTOs
 
 ### ✅ Done
 #### 🔐 Authentication and Authorizatiom
@@ -68,11 +70,9 @@ Application for personal financial management using transactions; with authentic
 ## Frontend Update Checklist
 ### Needs
 #### 🔐 Authentication (JWT)
-- [ ] Logout (token removal and redirection)
 
 #### 💸 Transaction Management
 - [ ] Transaction list for the logged-in user
-- [ ] Add new transaction (income/expense)
 - [ ] Edit existing transactions
 - [ ] Delete transactions
 - [ ] Filtering and sorting (by date, type, amount, etc.)
@@ -103,3 +103,8 @@ Application for personal financial management using transactions; with authentic
 - [x] Integration with backend for authentication
 - [x] Secure storage of JWT token (e.g., localStorage or sessionStorage)
 - [x] Route protection based on authentication
+- [x] Logout (token removal and redirection)
+
+#### 💸 Transaction Management
+- [x] Add new transaction (income/expense)
+
