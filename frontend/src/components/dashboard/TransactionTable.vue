@@ -3,11 +3,6 @@
         <h2>Transações Recentes</h2>
         <table v-if="transactions.length">
         <thead>
-            <div class="saldo">
-                <h3>Saldo Atual: <span :class="balance >= 0 ? 'success' : 'errors'">
-                R$ {{ balance.toFixed(2) }}
-                </span></h3>
-            </div>
         <tr>
             <th>Data</th>
             <th>Tipo</th>
@@ -17,12 +12,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr v-for="tx in transactions" :key="tx.id">    
+        <tr v-for="tx in transactions" :key="tx.id">
             <td>{{ formatDate(tx.date) }}</td>
             <td :class="tx.type === 'INPUT' ? 'success' : 'errors'"> {{ tx.type }} </td>
             <td :class="tx.type === 'INPUT' ? 'success' : 'errors'"> {{ tx.type === 'INPUT' ? '+' : '-' }}R$ {{ tx.amount.toFixed(2) }}</td>
             <td>{{ tx.category }}</td>
             <td>{{ tx.description }}</td>
+            <td><button @click="deleteTransaction(tx.id)">Deletar</button></td>
         </tr>
     </tbody>
     </table>
@@ -35,7 +31,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted, computed, watch } from 'vue';
 
 type Transaction = {
     id: string
@@ -64,7 +60,7 @@ async function listTransactions(){
 
         if(response.ok){
             console.log("Transação obtida com sucesso")
-            transactions.value = data 
+            transactions.value = data
             return
         }
 
@@ -76,7 +72,7 @@ async function listTransactions(){
         errorMessages.value = fieldErrors || arrayErrors || [fallbackError]
 
     }catch(error){
-        console.error('Erro no signIn:', error)
+        console.error('Erro ao adicionar transação:', error)
     }
 }
 
@@ -93,8 +89,39 @@ const balance = computed(() => {
   }, 0)
 })
 
+async function deleteTransaction(id: string){
+    try{
+        const response = await fetch(`http://localhost:8080/transactions/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json', 
+                'Authorization': `Bearer ${token}` },
+        })
+
+        if(response.ok){
+            console.log("Transação deletada com sucesso")
+            await listTransactions()
+            return
+        }
+
+        errorMessages.value = []
+        const fieldErrors = data.fields && Object.values(data.fields)
+        const arrayErrors = Array.isArray(data.errors) && data.errors
+        const fallbackError = data.message || 'Erro desconhecido'
+
+        errorMessages.value = fieldErrors || arrayErrors || [fallbackError]
+
+    }catch(error){
+        console.error('Erro ao deletar transação:', error)
+    }
+}
+
 defineExpose({
   listTransactions
+})
+
+watch(balance, (newBalance) => {
+  localStorage.setItem('balance', newBalance.toString())
 })
 
 onMounted(() => {
