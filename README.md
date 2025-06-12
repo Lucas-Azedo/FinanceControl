@@ -72,9 +72,7 @@ Application for personal financial management using transactions; with authentic
 #### 🔐 Authentication (JWT)
 
 #### 💸 Transaction Management
-- [ ] Transaction list for the logged-in user
 - [ ] Edit existing transactions
-- [ ] Delete transactions
 - [ ] Filtering and sorting (by date, type, amount, etc.)
 
 #### 👥 User Management (Admin)
@@ -94,7 +92,6 @@ Application for personal financial management using transactions; with authentic
 - [ ] Responsive design (mobile-first)
 - [ ] Reusable components
 - [ ] Loading indicators
-- [ ] Clear error/success messages
 - [ ] Light/Dark theme support (optional)
 
 ### ✅ Done
@@ -107,4 +104,10 @@ Application for personal financial management using transactions; with authentic
 
 #### 💸 Transaction Management
 - [x] Add new transaction (income/expense)
+- [x] Delete transactions
+- [x] Transaction list for the logged-in user
+- [x] Balance persistance
+
+#### 🖥️ General UI/UX
+- [x] Clear error/success messages
 
