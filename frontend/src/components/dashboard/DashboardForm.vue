@@ -26,7 +26,7 @@
     </div>
   </template>
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { TransactionCategories } from '../../enum'
 import { useBalance  } from '../../composables/useBalance'
 import { useExtractErrors  } from '../../composables/useExtractErrors'
@@ -87,6 +87,10 @@ function clearForm() {
   transactionType.value = ''
   category.value = ''
 }
+
+watch(transactionType, () => {
+  category.value = ''
+})
 
 const categories = computed(() => {
   if (!transactionType.value) return []
