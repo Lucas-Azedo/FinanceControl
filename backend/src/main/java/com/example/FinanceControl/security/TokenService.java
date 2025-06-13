@@ -10,16 +10,21 @@ import org.springframework.stereotype.Service;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 
+
 @Service
 public class TokenService {
 
     private static final String SECRET = "my-secret-signature";
     private static final Algorithm ALGORITHM = Algorithm.HMAC256(SECRET);
 
+
     public String generateToken(User user) {
+        String role = user.getRole() != null ? user.getRole().getName() : "";
+
         return JWT.create()
                 .withSubject(user.getId().toString())
                 .withClaim("email", user.getEmail())
+                .withClaim("role", role)
                 .withExpiresAt(Instant.now().plus(1, ChronoUnit.HOURS))
                 .sign(ALGORITHM);
     }

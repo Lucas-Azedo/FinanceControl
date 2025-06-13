@@ -17,8 +17,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Set;
-
 @RequiredArgsConstructor
 @Service
 public class UserUpdateService {
@@ -62,19 +60,10 @@ public class UserUpdateService {
         User user = getAuthenticatedUser();
 
         Role newRole = roleRepository.findByName(dto.getRoleName())
-                        .orElseThrow(() -> new RoleNotFoundException("Role não encontrada: " + dto.getRoleName()));
+                .orElseThrow(() -> new RoleNotFoundException("Role não encontrada: " + dto.getRoleName()));
 
-        Set<Role> currentRoles = user.getRoles();
-
-        // Se for role de tipo de usuário (free ou premium), substitui
-        if (isUserLevelRole(newRole.getName())) {
-            // Remove roles do tipo USER (free ou premium)
-            currentRoles.removeIf(role -> isUserLevelRole(role.getName()));
-        }
-
-        currentRoles.add(newRole);
-        user.setRoles(currentRoles);
-
+        // Substitui a role antiga pela nova
+        user.setRole(newRole);
 
         userRepository.save(user);
 

@@ -13,6 +13,10 @@ import UserManagement from '../views/admin/UserManagement.vue'
 
 // Profile
 import Profile from '../views/profile/Profile.vue'
+
+// Planner
+import Planner from '../views/planner/Planner.vue'
+
 import { useAuth } from '../composables/useAuth'
 
 const routes = [
@@ -34,6 +38,11 @@ const routes = [
     path: '/dashboard',
     component: Dashboard,
     meta: { requiresAuth: true }
+  },
+  {
+    path: '/planner',
+    component: Planner,
+    meta: { requiresAuth: true, requiresAdmin: true }
   },
   {
     path: '/profile',

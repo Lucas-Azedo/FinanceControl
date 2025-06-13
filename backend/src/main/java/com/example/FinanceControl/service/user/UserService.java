@@ -44,7 +44,7 @@ public class UserService {
         user.setName(dto.getName());
         user.setEmail(dto.getEmail());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
-        user.setRoles(new HashSet<>(Set.of(defaultRole))); // mutável
+        user.setRole(defaultRole);
 
         user = userRepository.save(user);
 
@@ -57,7 +57,7 @@ public class UserService {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new IdNotFoundException("Id nao encontrado"));
 
-        return new UserResponseDTO(user.getId(), user.getName(), user.getEmail(), getRoleNames(user));
+        return new UserResponseDTO(user.getId(), user.getName(), user.getEmail(), user.getRole().getName());
     }
 
     public List<UserResponseDTO> getAllUsers() {
@@ -67,7 +67,7 @@ public class UserService {
                         user.getId(),
                         user.getName(),
                         user.getEmail(),
-                        getRoleNames(user)))
+                        user.getRole().getName()))
                 .toList();
     }
 
@@ -82,19 +82,16 @@ public class UserService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IdNotFoundException("Usuário não encontrado"));
 
+        if (!roleName.startsWith("ROLE_")) {
+            roleName = "ROLE_" + roleName;
+        }
+
         Role newRole = roleRepository.findByName(roleName)
                 .orElseThrow(() -> new RoleNotFoundException("Role não encontrada"));
 
-        Set<Role> roles = new HashSet<>();
-        roles.add(newRole);
-        user.setRoles(roles);
+        user.setRole(newRole);
         userRepository.save(user);
     }
 
-    private Set<String> getRoleNames(User user) {
-        return user.getRoles()
-                .stream()
-                .map(Role::getName)
-                .collect(Collectors.toSet());
-    }
+
 }

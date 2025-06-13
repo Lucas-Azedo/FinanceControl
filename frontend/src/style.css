@@ -2,8 +2,8 @@
   --color-text: #2C3E50;
   --color-background: #FFFFFF;
   --color-card: #F7F9FA;
-  --color-primary: #3B82F6;
-  --color-primary-hover: #2563EB;
+  --color-primary: #ab3bf6;
+  --color-primary-hover: #800acf;
   --color-error: #EF4444;
   --color-success: #10B981;
   --color-border: #E5E7EB;
@@ -170,6 +170,16 @@ button:focus-visible {
 
 .dropdown button:hover {
   background-color: #f0f0f0;
+}
+
+.redirect {
+  position:absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: translateX(-50%);
+  left: 50%;
 }
 
 .login-page {

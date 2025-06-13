@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/admin/users")
 @RequiredArgsConstructor
+@PreAuthorize("hasRole('ADMIN')")
 @Tag(name = "Admin User Management", description = "Ações administrativas para gerenciamento de usuários")
 public class UserController {
 
