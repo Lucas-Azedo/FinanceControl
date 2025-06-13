@@ -19,6 +19,7 @@ import TransactionFilters from '../../components/dashboard/TransactionFilters.vu
 const tableRef = ref()
 
 function handleTransactionAdded() {
-  tableRef.value?.listTransactions() // chamando método do filho
+  tableRef.value?.listTransactions()
+  
 }
 </script>

@@ -32,6 +32,7 @@
 </template>
 <script setup lang="ts">
 import { ref, onMounted, computed, watch } from 'vue';
+import { useExtractErrors  } from '../../composables/useExtractErrors'
 
 type Transaction = {
     id: string
@@ -45,7 +46,8 @@ type Transaction = {
 const token = localStorage.getItem('token')
 
 const transactions = ref<Transaction[]>([])
-const errorMessages = ref([])
+const errorMessages = ref<string[]>([])
+const { extractErrors } = useExtractErrors()
 
 async function listTransactions(){
     try{
@@ -64,12 +66,7 @@ async function listTransactions(){
             return
         }
 
-        errorMessages.value = []
-        const fieldErrors = data.fields && Object.values(data.fields)
-        const arrayErrors = Array.isArray(data.errors) && data.errors
-        const fallbackError = data.message || 'Erro desconhecido'
-
-        errorMessages.value = fieldErrors || arrayErrors || [fallbackError]
+        errorMessages.value = extractErrors(data)
 
     }catch(error){
         console.error('Erro ao adicionar transação:', error)
@@ -104,12 +101,8 @@ async function deleteTransaction(id: string){
             return
         }
 
-        errorMessages.value = []
-        const fieldErrors = data.fields && Object.values(data.fields)
-        const arrayErrors = Array.isArray(data.errors) && data.errors
-        const fallbackError = data.message || 'Erro desconhecido'
-
-        errorMessages.value = fieldErrors || arrayErrors || [fallbackError]
+        const data = await response.json()
+        errorMessages.value = extractErrors(data)
 
     }catch(error){
         console.error('Erro ao deletar transação:', error)

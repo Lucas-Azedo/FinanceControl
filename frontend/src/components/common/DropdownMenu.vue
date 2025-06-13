@@ -44,4 +44,7 @@ balance.value = storedBalance ? parseFloat(storedBalance) : 0
       redirect('/signin')
   }
 
+onMounted(() => {
+  
+})
 </script>
