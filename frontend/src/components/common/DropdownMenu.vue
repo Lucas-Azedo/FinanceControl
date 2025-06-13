@@ -20,14 +20,13 @@
 import { ref, onMounted } from 'vue'
 import { useNavigation } from '../../composables/useNavigation'
 import { useAuth } from '../../composables/useAuth'
+import { useBalance } from '../../composables/useBalance'
 const { redirect } = useNavigation()
 const { logout } = useAuth()
+const { balance } = useBalance()
+
 
 const showMenu = ref(false)
-const balance = ref(0)
-
-const storedBalance = localStorage.getItem('balance')
-balance.value = storedBalance ? parseFloat(storedBalance) : 0
 
   function toggleMenu() {
       showMenu.value = !showMenu.value
@@ -43,8 +42,4 @@ balance.value = storedBalance ? parseFloat(storedBalance) : 0
       logout()
       redirect('/signin')
   }
-
-onMounted(() => {
-  
-})
 </script>

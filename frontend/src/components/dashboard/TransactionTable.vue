@@ -33,6 +33,7 @@
 <script setup lang="ts">
 import { ref, onMounted, computed, watch } from 'vue';
 import { useExtractErrors  } from '../../composables/useExtractErrors'
+import { useBalance } from '../../composables/useBalance'
 
 type Transaction = {
     id: string
@@ -47,6 +48,8 @@ const token = localStorage.getItem('token')
 
 const transactions = ref<Transaction[]>([])
 const errorMessages = ref<string[]>([])
+
+const { balance, setBalance } = useBalance()
 const { extractErrors } = useExtractErrors()
 
 async function listTransactions(){
@@ -63,6 +66,7 @@ async function listTransactions(){
         if(response.ok){
             console.log("Transação obtida com sucesso")
             transactions.value = data
+            setBalance(computedBalance.value)
             return
         }
 
@@ -78,7 +82,7 @@ function formatDate(dateString: string): string {
   return date.toLocaleDateString('pt-BR') + ' ' + date.toLocaleTimeString('pt-BR')
 }
 
-const balance = computed(() => {
+const computedBalance = computed(() => {
   return transactions.value.reduce((total, tx) => {
     return tx.type === 'INPUT'
       ? total + tx.amount
@@ -98,6 +102,7 @@ async function deleteTransaction(id: string){
         if(response.ok){
             console.log("Transação deletada com sucesso")
             await listTransactions()
+            setBalance(computedBalance.value)
             return
         }
 
@@ -111,10 +116,6 @@ async function deleteTransaction(id: string){
 
 defineExpose({
   listTransactions
-})
-
-watch(balance, (newBalance) => {
-  localStorage.setItem('balance', newBalance.toString())
 })
 
 onMounted(() => {

@@ -28,16 +28,22 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { TransactionCategories } from '../../enum'
+import { useBalance  } from '../../composables/useBalance'
+import { useExtractErrors  } from '../../composables/useExtractErrors'
 
 const amount = ref('')
 const description = ref('')
 const transactionType = ref('')
 const category = ref('')
 
+const { balance, setBalance } = useBalance()
+const { extractErrors } = useExtractErrors()
+
+const errorMessages = ref<string[]>([])
+
 const token = localStorage.getItem('token')
 
 const emit = defineEmits(['transaction-added'])
-const errorMessages = ref([])
 
 async function submitTransaction() {
     try{
@@ -58,17 +64,17 @@ async function submitTransaction() {
 
         if(response.ok){
             console.log("Transação efetuada com sucesso!")
+
+          const numericAmount = parseFloat(amount.value)
+          const delta = transactionType.value === 'INPUT' ? numericAmount : -numericAmount
+          setBalance(data.newBalance || balance.value + delta)
+
             clearForm()
             emit('transaction-added')
             return
         }
 
-        errorMessages.value = []
-        const fieldErrors = data.fields && Object.values(data.fields)
-        const arrayErrors = Array.isArray(data.errors) && data.errors
-        const fallbackError = data.message || 'Erro desconhecido'
-
-        errorMessages.value = fieldErrors || arrayErrors || [fallbackError]
+        errorMessages.value = extractErrors(data)
 
     }catch(error){
         console.error('Erro no signIn:', error)
