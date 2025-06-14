@@ -54,7 +54,11 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:3000")); // Origem liberada
+        configuration.setAllowedOrigins(List.of(
+                "http://localhost",       // quando o frontend está exposto via porta 80
+                "http://localhost:3000",  // para rodar frontend fora do Docker
+                "http://localhost:5173"   // caso use Vite no modo dev
+        ));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true); // caso precise enviar cookies ou auth
