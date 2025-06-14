@@ -17,6 +17,7 @@ import Profile from '../views/profile/Profile.vue'
 // Planner
 import Planner from '../views/planner/Planner.vue'
 
+import { useGlobalMessage } from '../composables/useGlobalMessage'
 import { useAuth } from '../composables/useAuth'
 
 const routes = [
@@ -62,14 +63,15 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated } = useAuth()
+  const { showMessage } = useGlobalMessage()
 
-  if(to.meta.requiresAuth && !isAuthenticated()){
-    next('/signin')
-  }else{
-    next();
+  if (to.meta.requiresAuth && !isAuthenticated()) {
+    showMessage('Sessão expirada. Faça login novamente.')
+    next('/signin')  // redireciona aqui, no router
+  } else {
+    next()
   }
-
 })
 
 export default router

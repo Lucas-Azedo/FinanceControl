@@ -31,9 +31,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, onMounted, computed, watch } from 'vue';
-import { useExtractErrors  } from '../../composables/useExtractErrors'
+import { ref, onMounted, computed } from 'vue';
 import { useBalance } from '../../composables/useBalance'
+import { useApiFetch } from '../../composables/useApiFetch';
+import { useExtractErrors } from '../../composables/useExtractErrors';
 
 type Transaction = {
     id: string
@@ -44,33 +45,23 @@ type Transaction = {
     category: string
 }
 
-const token = localStorage.getItem('token')
-
 const transactions = ref<Transaction[]>([])
 const errorMessages = ref<string[]>([])
 
-const { balance, setBalance } = useBalance()
 const { extractErrors } = useExtractErrors()
+const { setBalance } = useBalance()
 
 async function listTransactions(){
     try{
-        const response = await fetch('http://localhost:8080/transactions', {
+        const data = await useApiFetch('http://localhost:8080/transactions', {
             method: 'GET',
-            headers: {
-                'Content-Type': 'application/json', 
-                'Authorization': `Bearer ${token}` },
         })
 
-        const data = await response.json();
-
-        if(response.ok){
-            console.log("Transação obtida com sucesso")
-            transactions.value = data
-            setBalance(computedBalance.value)
-            return
-        }
-
-        errorMessages.value = extractErrors(data)
+        if (data) {
+        transactions.value = data
+        setBalance(computedBalance.value)
+        console.log("Transações obtidas com sucesso")
+    }
 
     }catch(error){
         console.error('Erro ao adicionar transação:', error)
@@ -92,25 +83,19 @@ const computedBalance = computed(() => {
 
 async function deleteTransaction(id: string){
     try{
-        const response = await fetch(`http://localhost:8080/transactions/${id}`, {
+        const data = await useApiFetch(`http://localhost:8080/transactions/${id}`, {
             method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json', 
-                'Authorization': `Bearer ${token}` },
         })
 
-        if(response.ok){
-            console.log("Transação deletada com sucesso")
+    if (data === null) {
+        console.log("Transação deletada com sucesso")
             await listTransactions()
             setBalance(computedBalance.value)
             return
-        }
-
-        const data = await response.json()
-        errorMessages.value = extractErrors(data)
+    }
 
     }catch(error){
-        console.error('Erro ao deletar transação:', error)
+        errorMessages.value = extractErrors(error)
     }
 }
 

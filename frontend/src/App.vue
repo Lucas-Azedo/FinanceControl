@@ -1,8 +1,11 @@
 <script setup lang="ts">
+import GlobalMessage from './components/common/GlobalMessage.vue';
+
 </script>
 
 <template>
   <router-view />
+  <GlobalMessage />
 </template>
 
 <style scoped>

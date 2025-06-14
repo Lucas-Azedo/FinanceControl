@@ -1,74 +1,63 @@
 <template>
   <div id="login" class="login-page">
     <div class="login-card">
-		  <h1>Create your account in <span class="brand">FinanceControl</span></h1>
+      <h1>Create your account in <span class="brand">FinanceControl</span></h1>
 
-      <div v-if="errorMessages.length" class ="errors">
-        <ul>
-          <li v-for="(err, i) in errorMessages" :key="i">{{ err }}</li>
-        </ul>
-      </div>
+      <ul v-if="errorMessages.length" class="errors">
+        <li v-for="(err, i) in errorMessages" :key="i">{{ err }}</li>
+      </ul>
 
       <div class="form">
         <input v-model="name" placeholder="Name" type="text" autocomplete="name" />
-        <input v-model="email" placeholder="E-mail" type="text" autocomplete="email"/>
-        <input v-model="password" placeholder="Password" type="password" autocomplete="new-password"/>
-        <button @click="signUp"  class="primary">Sign Up</button>
-        <button @click="signIn"  class="seciondary">Log in</button>
+        <input v-model="email" placeholder="E-mail" type="text" autocomplete="email" />
+        <input v-model="password" placeholder="Password" type="password" autocomplete="new-password" />
+        <button @click="signUp" class="primary">Sign Up</button>
+        <button @click="signIn" class="secondary">Log in</button>
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import { useAuth } from '../../composables/useAuth'
 import { useNavigation } from '../../composables/useNavigation'
-
-const { setToken } = useAuth()
-const { redirect } = useNavigation()
-
+import { useApiFetch } from '../../composables/useApiFetch'
+import { useExtractErrors } from '../../composables/useExtractErrors'
 
 const name = ref('')
 const email = ref('')
 const password = ref('')
+const errorMessages = ref<string[]>([])
 
-const errorMessages = ref([])
+const { setToken } = useAuth()
+const { redirect } = useNavigation()
+const { extractErrors } = useExtractErrors()
 
 async function signUp() {
+  errorMessages.value = []
 
-	try {
-		const response = await fetch('http://localhost:8080/auth/signup', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({
-				name: name.value,
-				email: email.value,
-				password: password.value
-			})
-		})
+  try {
+    const data = await useApiFetch<{ token: string } | null>('http://localhost:8080/auth/signup', {
+      method: 'POST',
+      body: JSON.stringify({
+        name: name.value,
+        email: email.value,
+        password: password.value
+      })
+    })
 
-		const data = await response.json()
-
-    if (response.ok) {
+    if (data && 'token' in data) {
       setToken(data.token)
       redirect('/dashboard')
-      return
     }
 
-    errorMessages.value = []
-    const fieldErrors = data.fields && Object.values(data.fields)
-    const arrayErrors = Array.isArray(data.errors) && data.errors
-    const fallbackError = data.message || 'Erro desconhecido'
-
-    errorMessages.value = fieldErrors || arrayErrors || [fallbackError]
-		
-	} catch (error) {
-		errorMessages.value = ['Erro de rede ou servidor indisponível. Tente novamente mais tarde.']
-	}
+  } catch (err) {
+    errorMessages.value = extractErrors(err)
+  }
 }
 
 function signIn() {
-	redirect('/signin')
+  redirect('/signin')
 }
 </script>

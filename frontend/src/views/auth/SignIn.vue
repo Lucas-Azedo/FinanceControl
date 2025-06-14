@@ -1,72 +1,60 @@
 <template>
-    <div id="login" class="login-page">
-        <div class="login-card">
-            <h1>Sign in to your account in <span class="brand">FinanceControl</span></h1>
+  <div id="login" class="login-page">
+    <div class="login-card">
+      <h1>Sign in to your account in <span class="brand">FinanceControl</span></h1>
 
-            <div v-if="errorMessages.length" class ="errors">
-                <ul>
-                    <li v-for="(err, i) in errorMessages" :key="i">{{ err }}</li>
-                </ul>
-            </div>
+      <ul v-if="errorMessages.length" class="errors">
+        <li v-for="(err, i) in errorMessages" :key="i">{{ err }}</li>
+      </ul>
 
-            <div class="form">
-                <input v-model="email" placeholder="e-mail" type="email" autocomplete="name"/>
-                <input v-model="password" placeholder="Password" type="password" />
-                <button @click="signIn" class="primary">Log In </button>
-                <button @click="signUp" class="secondary">Create Account</button>
-            </div>
-        </div>
+      <div class="form">
+        <input v-model="email" placeholder="e-mail" type="email" autocomplete="email" />
+        <input v-model="password" placeholder="Password" type="password" />
+        <button @click="signIn" class="primary">Log In</button>
+        <button @click="signUp" class="secondary">Create Account</button>
+      </div>
     </div>
+  </div>
 </template>
 
-<script setup>
-import { ref } from 'vue';
+<script setup lang="ts">
+import { ref } from 'vue'
 import { useAuth } from '../../composables/useAuth'
 import { useNavigation } from '../../composables/useNavigation'
-
-const { setToken } = useAuth()
-const { redirect } = useNavigation()
-
+import { useApiFetch } from '../../composables/useApiFetch'
+import { useExtractErrors } from '../../composables/useExtractErrors'
 
 const email = ref('')
 const password = ref('')
+const errorMessages = ref<string[]>([])
 
-const errorMessages = ref([])
+const { setToken } = useAuth()
+const { redirect } = useNavigation()
+const { extractErrors } = useExtractErrors()
 
 async function signIn() {
-    try {
-        const response = await fetch('http://localhost:8080/auth/signin', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                email: email.value,
-                password: password.value
-            }),
-        })
+  try {
+    const data = await useApiFetch<{ token: string }>('http://localhost:8080/auth/signin', {
+        method: 'POST',
+        body: JSON.stringify({
+        email: email.value,
+        password: password.value
+    }),
+    skipAuthInterceptor: true
+    })
 
-        const data = await response.json();
 
-        
-        if (response.ok) {
-            setToken(data.token)
-            redirect('/dashboard')
-            return
-        }
-
-        errorMessages.value = []
-        const fieldErrors = data.fields && Object.values(data.fields)
-        const arrayErrors = Array.isArray(data.errors) && data.errors
-        const fallbackError = data.message || 'Erro desconhecido'
-
-        errorMessages.value = fieldErrors || arrayErrors || [fallbackError]
-		
-    } catch (error) {
-        console.error('Erro no signIn:', error)
+    if (data && 'token' in data) {
+      setToken(data.token)
+      redirect('/dashboard')
     }
+    errorMessages.value = []
+  } catch (err) {
+    errorMessages.value = extractErrors(err)
+  }
 }
 
 function signUp() {
-    redirect('/signup')
+  redirect('/signup')
 }
-
 </script>

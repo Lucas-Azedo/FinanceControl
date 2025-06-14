@@ -29,7 +29,8 @@
 import { ref, computed, watch } from 'vue';
 import { TransactionCategories } from '../../enum'
 import { useBalance  } from '../../composables/useBalance'
-import { useExtractErrors  } from '../../composables/useExtractErrors'
+import { useApiFetch } from '../../composables/useApiFetch';
+import { useExtractErrors } from '../../composables/useExtractErrors';
 
 const amount = ref('')
 const description = ref('')
@@ -41,44 +42,35 @@ const { extractErrors } = useExtractErrors()
 
 const errorMessages = ref<string[]>([])
 
-const token = localStorage.getItem('token')
-
 const emit = defineEmits(['transaction-added'])
 
 async function submitTransaction() {
-    try{
-        const response = await fetch('http://localhost:8080/transactions', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json', 
-                'Authorization': `Bearer ${token}` },
-            body: JSON.stringify({
-                amount: parseFloat(amount.value),
-                description: description.value,
-                type: transactionType.value,
-                category: category.value
-            }),
-        })
+  try{
+    const data = await useApiFetch('http://localhost:8080/transactions', {
+      method: 'POST',
+      body: JSON.stringify({
+        amount: parseFloat(amount.value),
+        description: description.value,
+        type: transactionType.value,
+        category: category.value
+      }),
+    })
 
-        const data = await response.json();
-
-        if(response.ok){
-            console.log("Transação efetuada com sucesso!")
-
-          const numericAmount = parseFloat(amount.value)
-          const delta = transactionType.value === 'INPUT' ? numericAmount : -numericAmount
-          setBalance(data.newBalance || balance.value + delta)
-
-            clearForm()
-            emit('transaction-added')
-            return
-        }
-
-        errorMessages.value = extractErrors(data)
-
-    }catch(error){
-        console.error('Erro no signIn:', error)
+    if (data) {
+      errorMessages.value = []
+      console.log("Transação efetuada com sucesso!")
+      const numericAmount = parseFloat(amount.value)
+      const delta = transactionType.value === 'INPUT' ? numericAmount : -numericAmount
+      setBalance(data.newBalance || balance.value + delta)
+      clearForm()
+      emit('transaction-added')
+      return
     }
+
+  }catch(error){
+        errorMessages.value = extractErrors(error)
+    }
+
 }
 
 function clearForm() {
