@@ -4,19 +4,22 @@ on: [push, pull_request]
 jobs:
   build-backend:
     runs-on: ubuntu-latest
+
+  services:
+    db:
+      image: mysql:8.0
+      env:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: financedb
+        MYSQL_USER: admin
+        MYSQL_PASSWORD: admin123
+      ports:
+        - 3306:3306
+
     defaults:
       run:
         working-directory: backend
-      services:
-        db:
-          image: mysql:8.0
-          env:
-            MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: financedb
-            MYSQL_USER: admin
-            MYSQL_PASSWORD: admin123
-          ports:
-            - 3306:3306
+ 
       steps:
       - name: Checkout repo
         uses: actions/checkout@v3
