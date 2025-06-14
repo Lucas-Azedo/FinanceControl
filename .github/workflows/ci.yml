@@ -7,7 +7,17 @@ jobs:
     defaults:
       run:
         working-directory: backend
-    steps:
+      services:
+        db:
+          image: mysql:8.0
+          env:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: financedb
+            MYSQL_USER: admin
+            MYSQL_PASSWORD: admin123
+          ports:
+            - 3306:3306
+      steps:
       - name: Checkout repo
         uses: actions/checkout@v3
 
@@ -17,11 +27,23 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
+      - name: Wait for DB to be ready
+        run: |
+          until nc -z localhost 3306; do
+            echo "Waiting for MySQL..."
+            sleep 3
+          done
+
       - name: Build and test backend
         run: mvn clean test
+        env:
+          SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/financedb
+          SPRING_DATASOURCE_USERNAME: admin
+          SPRING_DATASOURCE_PASSWORD: admin123
+          JWT_SECRET: secret
 
       - name: Build backend Docker image
-        run: docker build -t financecontrol-backend . 
+        run: docker build -t financecontrol-backend .
 
   build-frontend:
     runs-on: ubuntu-latest
