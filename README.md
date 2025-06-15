@@ -17,23 +17,93 @@ Application for personal financial management using transactions; with authentic
 - **MySQL** database
 - **Lombok** for eliminating boilerplate code
 - **Swagger** for API docs
-- **Postman** for testing
+- **Postman** for manual testing
+- **JUnit** & **Mockito** for automated backend testing
+- **Docker** for containerization
 
  ---
- 
+## How to Run the Project
+- Running with Docker (recommended for production and isolated development)
+- This project uses Docker Compose to orchestrate 3 containers:
+
+
+|Service|Role|
+|-         |-                                 |
+| db       | MySQL database container        |
+| backend	 | Spring Boot backend application |
+| frontend | Frontend application container  |
+
+
+## Steps to run
+1. Make sure Docker and Docker Compose are installed.
+
+2. Copy .env.example to .env and adjust variables as needed.
+
+3. Run this command in the project root folder:
+
+`docker-compose up --build`
+
+4. Services will be available at:
+- Backend: http://localhost:8080
+- Frontend:  Frontend: http://localhost (accessible via default HTTP port 80)
+- MySQL: accessible internally by the backend container
+ ---
+## Docker
+### Container Architecture
+- db: MySQL 8.0 container with persistent storage via Docker volume db_data.
+- backend: Spring Boot application container, depends on the database.
+- frontend: Frontend application container, depends on backend.
+
+### Networking
+All containers connect to a Docker network finance-net for secure, isolated communication.
+
+### Communication flow
+- Backend connects to DB via jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE} (defaults to jdbc:mysql://db:3306/financedb).
+- Frontend calls backend APIs at http://backend:8080 within Docker network.
+- Host machine exposes ports 3306, 8080, and 80 for external access.
+
+### Useful commands
+
+Start all containers:
+```bash
+docker-compose up --build
+```
+
+Stop all containers:
+```bash
+docker-compose down
+```
+
+View backend logs:
+```bash
+docker logs -f finance-backend
+```
+
+Access backend container shell:
+```bash
+docker exec -it finance-backend /bin/sh`
+```
+
+ ---
 ## Backend Update Checklist
 ### 🚧 Needs
-- [ ] JUNIT for testing
 - [ ] Data graphs
 - [ ] @Slf4j
-- [ ] Docker
 - [ ] Export (PDF)
 - [ ] Endpoints for Graphs (transactions/summary , transactions/by-category , transactions/monthly);
 - [ ] Pagination for Listing (?page=0&size=10&sort=date,desc.)
 - [ ] PUT methods for all Services and Controllers
 - [ ] Refactor UserUpdateService to use both request and response DTOs
 
+#### 🧪 Testing
+- [ ] 50%
+- [ ] 70%
+- [ ] 80%+
+
 ### ✅ Done
+#### 🧪 Testing
+- [x] 20%
+
 #### 🔐 Authentication and Authorizatiom
 - [x] Refresh tokens
 - [x] Token Invalidation
@@ -64,11 +134,12 @@ Application for personal financial management using transactions; with authentic
 #### 🛠 Others
 - [x] Postman
 - [x] Swagger
-
+- [x] Docker
+- [x] JUNIT for testing
  ---
 
 ## Frontend Update Checklist
-### Needs
+### 🚧 Needs
 #### 🔐 Authentication (JWT)
 
 #### 💸 Transaction Management
