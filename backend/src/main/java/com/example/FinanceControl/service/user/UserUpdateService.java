@@ -26,37 +26,34 @@ public class UserUpdateService {
 
     private final PasswordEncoder passwordEncoder;
 
-    public UserUpdateEmailRequestDTO updateEmail(UserUpdateEmailRequestDTO dto){
+    public void updateEmail(UserUpdateEmailRequestDTO dto){
         User user = getAuthenticatedUser();
         validatePassword(dto.getPassword(), user.getPassword());
 
         user.setEmail(dto.getEmail());
         userRepository.save(user);
 
-        return dto;
     }
 
-    public UserUpdateNameRequestDTO updateName(UserUpdateNameRequestDTO dto){
+    public void updateName(UserUpdateNameRequestDTO dto){
         User user = getAuthenticatedUser();
         validatePassword(dto.getPassword(), user.getPassword());
 
         user.setName(dto.getName());
         userRepository.save(user);
 
-        return dto;
     }
 
-    public UserUpdatePasswordRequestDTO updatePassword(UserUpdatePasswordRequestDTO dto){
+    public void updatePassword(UserUpdatePasswordRequestDTO dto){
         User user = getAuthenticatedUser();
         validatePassword(dto.getPassword(), user.getPassword());
 
         user.setPassword(passwordEncoder.encode(dto.getNewPassword()));
         userRepository.save(user);
 
-        return dto;
     }
 
-    public UserUpdateRoleRequestDTO updateRole(UserUpdateRoleRequestDTO dto){
+    public void updateRole(UserUpdateRoleRequestDTO dto){
         User user = getAuthenticatedUser();
 
         Role newRole = roleRepository.findByName(dto.getRoleName())
@@ -67,7 +64,6 @@ public class UserUpdateService {
 
         userRepository.save(user);
 
-        return dto;
     }
 
     private User getAuthenticatedUser(){

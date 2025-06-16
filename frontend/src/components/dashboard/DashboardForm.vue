@@ -30,7 +30,6 @@ import { ref, computed, watch } from 'vue';
 import { TransactionCategories } from '../../enum'
 import { useBalance  } from '../../composables/useBalance'
 import { useApiFetch } from '../../composables/useApiFetch';
-import { useExtractErrors } from '../../composables/useExtractErrors';
 
 const amount = ref('')
 const description = ref('')
@@ -38,7 +37,6 @@ const transactionType = ref('')
 const category = ref('')
 
 const { balance, setBalance } = useBalance()
-const { extractErrors } = useExtractErrors()
 
 const errorMessages = ref<string[]>([])
 
@@ -68,7 +66,7 @@ async function submitTransaction() {
     }
 
   }catch(error){
-        errorMessages.value = extractErrors(error)
+        console.error('Erro ao adicioanar transação:', error)
     }
 
 }

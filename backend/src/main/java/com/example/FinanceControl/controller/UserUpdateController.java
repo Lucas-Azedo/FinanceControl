@@ -24,19 +24,22 @@ public class UserUpdateController {
 
     @Operation(summary = "Atualiza o e-mail do usuário")
     @PutMapping("/email")
-    public ResponseEntity<UserUpdateEmailRequestDTO> updateEmail(@RequestBody @Valid UserUpdateEmailRequestDTO dto) {
-        return ResponseEntity.ok(userUpdateService.updateEmail(dto));
+    public ResponseEntity<Void> updateEmail(@RequestBody @Valid UserUpdateEmailRequestDTO dto) {
+        userUpdateService.updateEmail(dto);
+        return ResponseEntity.noContent().build();
     }
 
     @Operation(summary = "Atualiza o nome do usuário")
     @PutMapping("/name")
-    public ResponseEntity<UserUpdateNameRequestDTO> updateName(@RequestBody @Valid UserUpdateNameRequestDTO dto) {
-        return ResponseEntity.ok(userUpdateService.updateName(dto));
+    public ResponseEntity<Void> updateName(@RequestBody @Valid UserUpdateNameRequestDTO dto) {
+        userUpdateService.updateName(dto);
+        return ResponseEntity.noContent().build();
     }
 
     @Operation(summary = "Atualiza a senha do usuário")
     @PutMapping("/password")
-    public ResponseEntity<UserUpdatePasswordRequestDTO> updatePassword(@RequestBody @Valid UserUpdatePasswordRequestDTO dto) {
-        return ResponseEntity.ok(userUpdateService.updatePassword(dto));
+    public ResponseEntity<Void> updatePassword(@RequestBody @Valid UserUpdatePasswordRequestDTO dto) {
+        userUpdateService.updatePassword(dto);
+        return ResponseEntity.noContent().build();
     }
 }

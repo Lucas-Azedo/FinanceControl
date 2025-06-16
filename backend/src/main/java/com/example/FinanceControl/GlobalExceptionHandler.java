@@ -58,7 +58,22 @@ public class GlobalExceptionHandler {
     // JSON malformado
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<Object> handleUnreadable(HttpMessageNotReadableException ex) {
-        return buildResponse("Requisição malformada ou campo ausente/inválido", HttpStatus.BAD_REQUEST);
+        String message = "Requisição malformada ou campo ausente/inválido";
+
+        Throwable cause = ex.getMostSpecificCause();
+        String causeMessage = cause.getMessage();
+
+        if(causeMessage!=null) {
+            if (causeMessage.contains("TransactionType")) {
+                message = "Tipo de transação inválido. Selecione uma opção.";
+            }
+
+            if (causeMessage.contains("TransactionCategory")) {
+                message = "Categoria de transação inválida. Selecione uma opção";
+            }
+        }
+
+        return buildResponse(message, HttpStatus.BAD_REQUEST);
     }
 
     // Parâmetros com tipo inválido
