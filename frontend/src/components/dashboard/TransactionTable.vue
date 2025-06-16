@@ -34,7 +34,6 @@
 import { ref, onMounted, computed } from 'vue';
 import { useBalance } from '../../composables/useBalance'
 import { useApiFetch } from '../../composables/useApiFetch';
-import { useExtractErrors } from '../../composables/useExtractErrors';
 
 type Transaction = {
     id: string
@@ -48,7 +47,6 @@ type Transaction = {
 const transactions = ref<Transaction[]>([])
 const errorMessages = ref<string[]>([])
 
-const { extractErrors } = useExtractErrors()
 const { setBalance } = useBalance()
 
 async function listTransactions(){
@@ -95,7 +93,7 @@ async function deleteTransaction(id: string){
     }
 
     }catch(error){
-        errorMessages.value = extractErrors(error)
+        console.error('Erro ao deletar transação:', error)
     }
 }
 
