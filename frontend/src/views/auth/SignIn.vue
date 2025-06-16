@@ -1,11 +1,9 @@
 <template>
+  <FormErrors :errors="errorMessages" />
+
   <div id="login" class="login-page">
     <div class="login-card">
       <h1>Sign in to your account in <span class="brand">FinanceControl</span></h1>
-
-      <ul v-if="errorMessages.length" class="errors">
-        <li v-for="(err, i) in errorMessages" :key="i">{{ err }}</li>
-      </ul>
 
       <div class="form">
         <input v-model="email" placeholder="e-mail" type="email" autocomplete="email" />
@@ -18,6 +16,8 @@
 </template>
 
 <script setup lang="ts">
+import FormErrors from '../../components/common/FormErrors.vue'
+
 import { ref } from 'vue'
 import { useAuth } from '../../composables/useAuth'
 import { useNavigation } from '../../composables/useNavigation'
@@ -33,6 +33,7 @@ const { redirect } = useNavigation()
 const { extractErrors } = useExtractErrors()
 
 async function signIn() {
+  errorMessages.value = []
   try {
     const data = await useApiFetch<{ token: string }>('http://localhost:8080/auth/signin', {
         method: 'POST',
@@ -48,10 +49,10 @@ async function signIn() {
       setToken(data.token)
       redirect('/dashboard')
     }
-    errorMessages.value = []
-  } catch (err) {
-    errorMessages.value = extractErrors(err)
-  }
+    }catch(error){
+      console.error('Erro ao logar:', error)
+      errorMessages.value = extractErrors(error)
+    }
 }
 
 function signUp() {

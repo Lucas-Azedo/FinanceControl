@@ -39,7 +39,7 @@ export async function useApiFetch<T = any>(url: string, options: ApiFetchOptions
         errorBody = await response.json()
       } else {
         const errorText = await response.text()
-        errorBody.message = errorText
+        errorBody = { message: errorText }
       }
 
       throw errorBody

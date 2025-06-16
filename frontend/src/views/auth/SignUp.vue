@@ -1,11 +1,9 @@
 <template>
+  <FormErrors :errors="errorMessages" />
+
   <div id="login" class="login-page">
     <div class="login-card">
       <h1>Create your account in <span class="brand">FinanceControl</span></h1>
-
-      <ul v-if="errorMessages.length" class="errors">
-        <li v-for="(err, i) in errorMessages" :key="i">{{ err }}</li>
-      </ul>
 
       <div class="form">
         <input v-model="name" placeholder="Name" type="text" autocomplete="name" />
@@ -19,6 +17,8 @@
 </template>
 
 <script setup lang="ts">
+import FormErrors from '../../components/common/FormErrors.vue'
+
 import { ref } from 'vue'
 import { useAuth } from '../../composables/useAuth'
 import { useNavigation } from '../../composables/useNavigation'
@@ -51,12 +51,12 @@ async function signUp() {
       setToken(data.token)
       redirect('/dashboard')
     }
-
-  } catch (err) {
-    errorMessages.value = extractErrors(err)
-  }
+  
+    }catch(error){
+      console.error('Erro ao logar:', error)
+      errorMessages.value = extractErrors(error)
+    }
 }
-
 function signIn() {
   redirect('/signin')
 }

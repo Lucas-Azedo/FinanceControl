@@ -1,7 +1,10 @@
 <template>
     <div class="transaction-table">
-        <h2>Transações Recentes</h2>
-        <table v-if="transactions.length">
+
+        <FormErrors :errors="errorMessages" />
+
+    <h2>Transações Recentes</h2>
+    <table v-if="transactions.length">
         <thead>
         <tr>
             <th>Data</th>
@@ -9,31 +12,34 @@
             <th>Valor</th>
             <th>Categoria</th>
             <th>Descrição</th>
+            <th></th>
         </tr>
-    </thead>
-    <tbody>
-        <tr v-for="tx in transactions" :key="tx.id">
-            <td>{{ formatDate(tx.date) }}</td>
-            <td :class="tx.type === 'INPUT' ? 'success' : 'errors'"> {{ tx.type }} </td>
-            <td :class="tx.type === 'INPUT' ? 'success' : 'errors'"> {{ tx.type === 'INPUT' ? '+' : '-' }}R$ {{ tx.amount.toFixed(2) }}</td>
-            <td>{{ tx.category }}</td>
-            <td>{{ tx.description }}</td>
-            <td><button @click="deleteTransaction(tx.id)">Deletar</button></td>
-        </tr>
-    </tbody>
+        </thead>
+
+        <tbody>
+            <tr v-for="tx in transactions" :key="tx.id">
+                <td>{{ formatDate(tx.date) }}</td>
+                <td :class="tx.type === 'INPUT' ? 'success' : 'errors'"> {{ tx.type }} </td>
+                <td :class="tx.type === 'INPUT' ? 'success' : 'errors'"> {{ tx.type === 'INPUT' ? '+' : '-' }}R$ {{ tx.amount.toFixed(2) }}</td>
+                <td>{{ tx.category }}</td>
+                <td>{{ tx.description }}</td>
+                <td><button @click="deleteTransaction(tx.id)">Deletar</button></td>
+            </tr>
+        </tbody>
     </table>
 
     <p v-else>Nenhuma transação encontrada.</p>
 
-    <ul v-if="errorMessages.length" class="errors">
-      <li v-for="(msg, i) in errorMessages" :key="i">{{ msg }}</li>
-    </ul>
+
   </div>
 </template>
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue';
+import FormErrors from '../common/FormErrors.vue';
+
+import { ref, onMounted, computed } from 'vue'
 import { useBalance } from '../../composables/useBalance'
-import { useApiFetch } from '../../composables/useApiFetch';
+import { useApiFetch } from '../../composables/useApiFetch'
+import { useExtractErrors } from '../../composables/useExtractErrors'
 
 type Transaction = {
     id: string
@@ -48,6 +54,7 @@ const transactions = ref<Transaction[]>([])
 const errorMessages = ref<string[]>([])
 
 const { setBalance } = useBalance()
+const { extractErrors } = useExtractErrors()
 
 async function listTransactions(){
     try{
@@ -62,10 +69,10 @@ async function listTransactions(){
     }
 
     }catch(error){
-        console.error('Erro ao adicionar transação:', error)
+        console.error('Erro ao listar transações:', error)
+        errorMessages.value = extractErrors(error)
     }
 }
-
 function formatDate(dateString: string): string {
   const date = new Date(dateString)
   return date.toLocaleDateString('pt-BR') + ' ' + date.toLocaleTimeString('pt-BR')
@@ -94,6 +101,7 @@ async function deleteTransaction(id: string){
 
     }catch(error){
         console.error('Erro ao deletar transação:', error)
+        errorMessages.value = extractErrors(error)
     }
 }
 
