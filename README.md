@@ -30,21 +30,30 @@ Application for personal financial management using transactions; with authentic
 
 
  ---
+
+## Features
+
+- User authentication with JWT
+- Transaction management (add, edit, delete)
+- Role-based access control
+- Swagger API documentation
+- Docker Compose setup for easy deployment
+
+ ---
 ## Continuous Integration (CI)
-This project uses GitHub Actions to automate testing and builds for both the backend and frontend every time code is pushed or a pull request is opened.
+This project uses **GitHub Actions** to automate testing and builds for both the backend and frontend on every `push` or `pull_request` to any branch.
 
-### How CI Works
-Triggers: The CI workflow runs on every push and pull_request to any branch.
+### How It Works
 
-Backend Job:
-- Spins up a MySQL 8.0 container for integration tests.
-- Waits for the database to be ready before running tests.
-- Builds and tests the backend using Maven with Java 21.
-- Builds the backend Docker image (financecontrol-backend).
+#### Backend Job
+- Starts a MySQL 8.0 container for integration tests.
+- Waits until the database is available before proceeding.
+- Sets up Java 21 and runs `mvn clean test`.
+- Builds the backend Docker image (`financecontrol-backend`).
 
-Frontend Job:
-- Installs Node.js version 20.
-- Installs frontend dependencies using npm ci.
+#### Frontend Job
+- Sets up Node.js 20.
+- Installs dependencies using `npm ci`.
 
 ![image](https://github.com/user-attachments/assets/05d5d5ca-cc71-4ac2-b659-b4fa8e2a10e5)
 
@@ -54,13 +63,11 @@ Frontend Job:
 - Running with Docker (recommended for production and isolated development)
 - This project uses Docker Compose to orchestrate 3 containers:
 
-
 |Service|Role|
-|-         |-                                 |
+|-         |-                                |
 | db       | MySQL database container        |
 | backend	 | Spring Boot backend application |
 | frontend | Frontend application container  |
-
 
 ## Steps to run
 1. Make sure Docker and Docker Compose are installed.
@@ -73,8 +80,10 @@ Frontend Job:
 
 4. Services will be available at:
 - Backend: http://localhost:8080
-- Frontend:  Frontend: http://localhost (accessible via default HTTP port 80)
-- MySQL: accessible internally by the backend container
+- Frontend: http://localhost (accessible via default HTTP port 80)
+- MySQL: accessible internally by the backend container (default port 3306)
+- Swagger UI: http://localhost:8080/swagger-ui/index.html
+- 
  ---
 ## Docker
 ### Container Architecture
@@ -109,7 +118,7 @@ docker logs -f finance-backend
 
 Access backend container shell:
 ```bash
-docker exec -it finance-backend /bin/sh`
+docker exec -it finance-backend /bin/sh
 ```
 
  ---
@@ -120,7 +129,6 @@ docker exec -it finance-backend /bin/sh`
 - [ ] Export (PDF)
 - [ ] Endpoints for Graphs (transactions/summary , transactions/by-category , transactions/monthly);
 - [ ] Pagination for Listing (?page=0&size=10&sort=date,desc.)
-- [ ] Change transactionSetDate to selectable day instead of .now
 
 #### 🧪 Testing
 - [ ] 50%
@@ -158,6 +166,7 @@ docker exec -it finance-backend /bin/sh`
 - [x] TransactionController
 - [x] TransactionService
 - [x] Refactor UserUpdateService to use both request and response DTOs
+- [x] Change transactionSetDate to selectable day instead of .now
       
 #### 🛠 Others
 - [x] Postman
