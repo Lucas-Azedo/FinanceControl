@@ -4,7 +4,7 @@
 
       <h2>Nova Transação</h2>
   
-      <div class="form">
+      <form class="form" @submit.prevent="submitTransaction">
         <input v-model="amount" placeholder="Valor" type="number" />
         <input v-model="description" placeholder="Descrição" />
   
@@ -19,9 +19,9 @@
             <option v-for="cat in categories" :key="cat" :value="cat">{{ cat }}</option>
         </select>
         
-        <button class="primary" @click="submitTransaction">Enviar</button>
+        <button  class="primary">Enviar</button>
   
-      </div>
+      </form>
     </div>
   </template>
 <script setup lang="ts">

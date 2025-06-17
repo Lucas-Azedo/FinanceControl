@@ -314,3 +314,103 @@ button.secondary:hover {
 .global-message button:hover {
   background-color: var(--color-error-secondary);
 }
+
+/* Container do profile principal */
+.profile {
+  max-width: 480px;
+  margin: 2rem auto;
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(158, 82, 245, 0.1);
+  text-align: left;
+}
+
+/* Área dos botões de ação */
+.profile .actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.profile .actions button {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 2px solid var(--color-primary);
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.profile .actions button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* UserUpdateForm.vue */
+/* Form container */
+.user-update-form {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: var(--color-white);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(158, 82, 245, 0.15);
+}
+
+/* Form labels */
+.user-update-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+/* Inputs estilizados */
+.user-update-form input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.user-update-form input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 8px var(--color-primary-hover);
+}
+
+/* Botões do formulário (usar botão primário já definido) */
+.user-update-form button[type="submit"] {
+  width: 100%;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  padding: 0.85rem 0;
+}
+
+/* Botão cancelar menor e secundário */
+.user-update-form button[type="button"] {
+  margin-top: 1rem;
+  width: 100%;
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.65rem 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.user-update-form button[type="button"]:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}

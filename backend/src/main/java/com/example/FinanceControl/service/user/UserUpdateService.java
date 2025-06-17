@@ -4,6 +4,7 @@ import com.example.FinanceControl.dto.request.userUpdate.UserUpdateEmailRequestD
 import com.example.FinanceControl.dto.request.userUpdate.UserUpdateNameRequestDTO;
 import com.example.FinanceControl.dto.request.userUpdate.UserUpdatePasswordRequestDTO;
 import com.example.FinanceControl.dto.request.userUpdate.UserUpdateRoleRequestDTO;
+import com.example.FinanceControl.exception.businessExceptions.EmailAlreadyExistsException;
 import com.example.FinanceControl.exception.businessExceptions.EmailNotFoundException;
 import com.example.FinanceControl.exception.businessExceptions.InvalidPasswordException;
 import com.example.FinanceControl.exception.businessExceptions.RoleNotFoundException;
@@ -17,6 +18,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @RequiredArgsConstructor
 @Service
 public class UserUpdateService {
@@ -29,6 +32,11 @@ public class UserUpdateService {
     public void updateEmail(UserUpdateEmailRequestDTO dto){
         User user = getAuthenticatedUser();
         validatePassword(dto.getPassword(), user.getPassword());
+
+        Optional<User> existingUser = userRepository.findByEmail(dto.getEmail());
+        if(existingUser.isPresent() && !existingUser.get().getId().equals(user.getId())){
+            throw new EmailAlreadyExistsException("E-mail já cadastrado");
+        }
 
         user.setEmail(dto.getEmail());
         userRepository.save(user);

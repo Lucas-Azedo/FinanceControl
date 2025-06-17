@@ -1,11 +1,12 @@
 <template>
   <FormErrors :errors="errorMessages" />
-
   <div id="login" class="login-page">
+
     <div class="login-card">
+
       <h1>Create your account in <span class="brand">FinanceControl</span></h1>
 
-      <div class="form">
+      <form class="form" @submit.prevent="signUp">
         <label> Nome </label>
         <input v-model="name" placeholder="Name" type="text" arequired />
 
@@ -15,9 +16,10 @@
         <label> Senha </label>
         <input v-model="password" placeholder="Password" type="password" required />
 
-        <button @click="signUp" class="primary">Sign Up</button>
+        <button class="primary">Sign Up</button>
+
         <button @click="signIn" class="secondary">Log in</button>
-      </div>
+      </form>
     </div>
   </div>
 </template>

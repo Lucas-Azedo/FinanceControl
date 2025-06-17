@@ -1,15 +1,20 @@
 <template>
   <FormErrors :errors="errorMessages" />
   <div id="login" class="login-page">
+    
     <div class="login-card">
+    
       <h1>Sign in to your account in <span class="brand">FinanceControl</span></h1>
 
-      <form class="form">
+      <form class="form" @submit.prevent="signIn">
         <label> E-mail </label>
         <input v-model="email" placeholder="e-mail" type="email" required />
+
         <label> Senha </label>
-        <input v-model="password" placeholder="Password" required />
-        <button @click="signIn" class="primary">Log In</button>
+        <input v-model="password" placeholder="Password" type="password" required />
+
+        <button class="primary">Log In</button>
+
         <button @click="signUp" class="secondary">Create Account</button>
       </form>
     </div>
