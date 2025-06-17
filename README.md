@@ -131,13 +131,13 @@ docker exec -it finance-backend /bin/sh
 - [ ] Pagination for Listing (?page=0&size=10&sort=date,desc.)
 
 #### 🧪 Testing
-- [ ] 50%
 - [ ] 70%
 - [ ] 80%+
 
 ### ✅ Done
 #### 🧪 Testing
 - [x] 20%
+- [x] 50%
 
 #### 🔐 Authentication and Authorizatiom
 - [x] Refresh tokens
