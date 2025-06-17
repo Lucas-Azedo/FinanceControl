@@ -92,6 +92,7 @@ docker exec -it finance-backend /bin/sh`
 - [ ] Export (PDF)
 - [ ] Endpoints for Graphs (transactions/summary , transactions/by-category , transactions/monthly);
 - [ ] Pagination for Listing (?page=0&size=10&sort=date,desc.)
+- [ ] Change transactionSetDate to selectable day instead of .now
 
 #### 🧪 Testing
 - [ ] 50%
@@ -151,12 +152,6 @@ docker exec -it finance-backend /bin/sh`
 - [ ] Delete users
 - [ ] Role and permission control (admin/user)
 
-#### 🧑 Profile Update (User Self-Service)
-- [ ] User profile screen
-- [ ] Edit personal information (name, email, password, etc.)
-- [ ] Form validation
-- [ ] Visual feedback on success/error
-
 #### 🖥️ General UI/UX
 - [ ] Responsive design (mobile-first)
 - [ ] Loading indicators
@@ -175,6 +170,12 @@ docker exec -it finance-backend /bin/sh`
 - [x] Delete transactions
 - [x] Transaction list for the logged-in user
 - [x] Balance persistance
+
+#### 🧑 Profile Update (User Self-Service)
+- [x] User profile screen
+- [x] Edit personal information (name, email, password, etc.)
+- [x] Form validation
+- [x] Visual feedback on success/error
 
 #### 🖥️ General UI/UX
 - [x] Clear error/success messages
