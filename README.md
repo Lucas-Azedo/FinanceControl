@@ -122,6 +122,12 @@ docker exec -it finance-backend /bin/sh
 ```
 
  ---
+## Diagrams and architecture
+
+See folder [docs/](./docs) for more information about the project structure.
+- [Use Case Diagram](./docs/UseCaseDiagram.jpg)
+ ---
+
 ## Backend Update Checklist
 ### 🚧 Needs
 - [ ] Data graphs

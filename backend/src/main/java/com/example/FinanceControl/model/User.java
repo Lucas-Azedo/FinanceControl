@@ -20,12 +20,14 @@ public class User {
     private UUID id;
     private String name;
     private String password;
+
+    @Column(unique = true)
     private String email;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Transaction> transactions;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_roles")
+    @JoinColumn(name = "user_roles")
     private Role role;
 }

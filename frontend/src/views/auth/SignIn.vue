@@ -8,10 +8,10 @@
 
       <form class="form" @submit.prevent="signIn">
         <label> E-mail </label>
-        <input v-model="email" placeholder="e-mail" type="email" required />
+        <input v-model="email" placeholder="e-mail" type="email"  />
 
         <label> Senha </label>
-        <input v-model="password" placeholder="Password" type="password" required />
+        <input v-model="password" placeholder="Password" type="password"  />
 
         <button class="primary">Log In</button>
 

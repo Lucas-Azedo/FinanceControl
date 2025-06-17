@@ -8,13 +8,13 @@
 
       <form class="form" @submit.prevent="signUp">
         <label> Nome </label>
-        <input v-model="name" placeholder="Name" type="text" required />
+        <input v-model="name" placeholder="Name" type="text" />
 
         <label> E-mail </label>
-        <input v-model="email" placeholder="E-mail" type="text" required />
+        <input v-model="email" placeholder="E-mail" type="text" />
 
         <label> Senha </label>
-        <input v-model="password" placeholder="Password" type="password" required />
+        <input v-model="password" placeholder="Password" type="password" />
 
         <button class="primary">Sign Up</button>
 

@@ -3,10 +3,10 @@
 
   <form class="form" @submit.prevent="handleSubmit">
     <label>{{ label }}</label>
-    <input v-model="input" :type="type" :placeholder="placeholder" required />
+    <input v-model="input" :type="type" :placeholder="placeholder"  />
 
     <label>Senha atual</label>
-    <input v-model="password" type="password" placeholder="Digite sua senha" required />
+    <input v-model="password" type="password" placeholder="Digite sua senha"  />
 
     <button type="submit">{{ buttonText }}</button>
     <button type="button" @click="$emit('close')">Cancelar</button>
