@@ -9,11 +9,9 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserUpdateEmailRequestDTO {
-    @Email(message = "E-mail inválido")
     @NotBlank(message = "E-mail é obrigatório")
     private String email;
 
-    @NotBlank
-    @NotNull(message = "Senha não pode ser nula")
+    @NotBlank(message = "Senha é obrigatória")
     private String password;
 }

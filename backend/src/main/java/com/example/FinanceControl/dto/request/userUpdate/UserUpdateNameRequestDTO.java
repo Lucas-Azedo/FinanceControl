@@ -13,7 +13,5 @@ public class UserUpdateNameRequestDTO {
     private String name;
 
     @NotBlank(message = "Senha é obrigatória")
-    @NotNull(message = "Senha não pode ser nula")
-    @Size(min = 6, message = "A senha deve ter no mínimo 6 caracteres")
     private String password;
 }

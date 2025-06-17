@@ -1,7 +1,6 @@
 <template>
+    <FormErrors :errors="errorMessages" />
     <div class="card transaction-form">
-
-      <FormErrors :errors="errorMessages" />
 
       <h2>Nova Transação</h2>
   

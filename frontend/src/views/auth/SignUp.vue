@@ -6,9 +6,15 @@
       <h1>Create your account in <span class="brand">FinanceControl</span></h1>
 
       <div class="form">
-        <input v-model="name" placeholder="Name" type="text" autocomplete="name" />
-        <input v-model="email" placeholder="E-mail" type="text" autocomplete="email" />
-        <input v-model="password" placeholder="Password" type="password" autocomplete="new-password" />
+        <label> Nome </label>
+        <input v-model="name" placeholder="Name" type="text" arequired />
+
+        <label> E-mail </label>
+        <input v-model="email" placeholder="E-mail" type="text" required />
+
+        <label> Senha </label>
+        <input v-model="password" placeholder="Password" type="password" required />
+
         <button @click="signUp" class="primary">Sign Up</button>
         <button @click="signIn" class="secondary">Log in</button>
       </div>

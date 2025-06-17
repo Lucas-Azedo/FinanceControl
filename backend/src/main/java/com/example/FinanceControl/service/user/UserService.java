@@ -1,6 +1,7 @@
 package com.example.FinanceControl.service.user;
 
 import com.example.FinanceControl.dto.request.UserRequestDTO;
+import com.example.FinanceControl.dto.response.UserMeResponseDTO;
 import com.example.FinanceControl.dto.response.UserResponseDTO;
 import com.example.FinanceControl.dto.response.UserSignUpResponseDTO;
 import com.example.FinanceControl.exception.businessExceptions.EmailAlreadyExistsException;
@@ -10,15 +11,13 @@ import com.example.FinanceControl.model.Role;
 import com.example.FinanceControl.model.User;
 import com.example.FinanceControl.repository.RoleRepository;
 import com.example.FinanceControl.repository.UserRepository;
+import com.example.FinanceControl.security.AuthUtils;
 import com.example.FinanceControl.security.TokenService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -54,10 +53,24 @@ public class UserService {
     }
 
     public UserResponseDTO getUserById(UUID id){
+
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new IdNotFoundException("Id nao encontrado"));
 
         return new UserResponseDTO(user.getId(), user.getName(), user.getEmail(), user.getRole().getName());
+    }
+
+    public Optional<UserMeResponseDTO> getUser(){
+        UUID id = AuthUtils.getAuthenticatedUserId();
+
+        UserMeResponseDTO dto = new UserMeResponseDTO();
+
+        return userRepository.findById(id)
+                .map(user -> {
+                    dto.setEmail(user.getEmail());
+                    dto.setName(user.getName());
+                    return dto;
+                });
     }
 
     public List<UserResponseDTO> getAllUsers() {

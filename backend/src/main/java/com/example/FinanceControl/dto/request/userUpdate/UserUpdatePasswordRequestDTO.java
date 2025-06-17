@@ -10,12 +10,10 @@ import lombok.*;
 @NoArgsConstructor
 public class UserUpdatePasswordRequestDTO {
 
-    @NotBlank(message = "Senha é obrigatória")
-    @Size(min = 6, message = "A senha deve ter no mínimo 6 caracteres")
+    @NotBlank(message = "Nova senha é obrigatória")
+    @Size(min = 6, message = "A nova senha deve ter no mínimo 6 caracteres")
     private String newPassword;
 
-    @NotBlank(message = "Nova senha é obrigatória")
-    @NotNull(message = "Senha não pode ser nula")
-    @Size(min = 6, message = "A nova senha deve ter no mínimo 6 caracteres")
+    @NotBlank(message = "Senha é obrigatória")
     private String password;
 }
