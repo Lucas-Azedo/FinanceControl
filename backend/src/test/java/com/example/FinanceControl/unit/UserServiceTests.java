@@ -2,6 +2,7 @@ package com.example.FinanceControl.unit;
 
 
 import com.example.FinanceControl.dto.request.UserRequestDTO;
+import com.example.FinanceControl.dto.response.UserMeResponseDTO;
 import com.example.FinanceControl.dto.response.UserResponseDTO;
 import com.example.FinanceControl.dto.response.UserSignUpResponseDTO;
 import com.example.FinanceControl.exception.businessExceptions.IdNotFoundException;
@@ -9,6 +10,7 @@ import com.example.FinanceControl.model.Role;
 import com.example.FinanceControl.model.User;
 import com.example.FinanceControl.repository.RoleRepository;
 import com.example.FinanceControl.repository.UserRepository;
+import com.example.FinanceControl.security.AuthUtils;
 import com.example.FinanceControl.security.TokenService;
 import com.example.FinanceControl.service.user.UserService;
 import org.junit.jupiter.api.AfterAll;
@@ -17,6 +19,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockedStatic;
 import org.mockito.MockitoAnnotations;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -169,6 +172,33 @@ public class UserServiceTests {
         assertEquals("Jane", response.get(1).getName());
 
         verify(userRepository, times(1)).findAll();
+    }
+
+
+    @Test
+    void getUser_shouldReturnUserMeResponseDTO_whenUserExists() {
+        UUID userId = UUID.fromString("00000000-0000-0000-0000-000000000000");
+
+        User user = new User();
+        user.setId(userId);
+        user.setName("John");
+        user.setEmail("john@email.com");
+
+        when(userRepository.findById(userId))
+                .thenReturn(Optional.of(user));
+
+        try (MockedStatic<AuthUtils> authUtilsMock = mockStatic(AuthUtils.class)) {
+            authUtilsMock.when(AuthUtils::getAuthenticatedUserId)
+                    .thenReturn(userId);
+
+            Optional<UserMeResponseDTO> response = userService.getUser();
+
+            assertTrue(response.isPresent());
+            assertEquals("John", response.get().getName());
+            assertEquals("john@email.com", response.get().getEmail());
+
+            verify(userRepository, times(1)).findById(userId);
+        }
     }
 
     @Test
