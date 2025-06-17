@@ -92,8 +92,6 @@ docker exec -it finance-backend /bin/sh`
 - [ ] Export (PDF)
 - [ ] Endpoints for Graphs (transactions/summary , transactions/by-category , transactions/monthly);
 - [ ] Pagination for Listing (?page=0&size=10&sort=date,desc.)
-- [ ] PUT methods for all Services and Controllers
-- [ ] Refactor UserUpdateService to use both request and response DTOs
 
 #### 🧪 Testing
 - [ ] 50%
@@ -130,6 +128,7 @@ docker exec -it finance-backend /bin/sh`
 - [x] UserUpdate Service
 - [x] TransactionController
 - [x] TransactionService
+- [x] Refactor UserUpdateService to use both request and response DTOs
       
 #### 🛠 Others
 - [x] Postman
@@ -140,7 +139,6 @@ docker exec -it finance-backend /bin/sh`
 
 ## Frontend Update Checklist
 ### 🚧 Needs
-#### 🔐 Authentication (JWT)
 
 #### 💸 Transaction Management
 - [ ] Edit existing transactions
@@ -161,7 +159,6 @@ docker exec -it finance-backend /bin/sh`
 
 #### 🖥️ General UI/UX
 - [ ] Responsive design (mobile-first)
-- [ ] Reusable components
 - [ ] Loading indicators
 - [ ] Light/Dark theme support (optional)
 
@@ -181,4 +178,5 @@ docker exec -it finance-backend /bin/sh`
 
 #### 🖥️ General UI/UX
 - [x] Clear error/success messages
+- [x] Reusable components
 
