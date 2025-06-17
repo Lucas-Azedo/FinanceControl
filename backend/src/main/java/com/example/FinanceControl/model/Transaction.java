@@ -7,7 +7,7 @@ import lombok.*;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 @Getter
@@ -21,7 +21,7 @@ public class Transaction {
     private UUID id;
     private String name;
     private BigDecimal amount;
-    private LocalDateTime date;
+    private Date date;
     private String description;
 
     @Enumerated(EnumType.STRING)

@@ -31,7 +31,7 @@ public class TransactionService {
 
         transaction.setAmount(dto.getAmount());
         transaction.setDescription(dto.getDescription());
-        transaction.setDate(LocalDateTime.now());
+        transaction.setDate(dto.getDate());
         transaction.setType(dto.getType());
         transaction.setCategory(dto.getCategory());
         transaction.setUser(user);

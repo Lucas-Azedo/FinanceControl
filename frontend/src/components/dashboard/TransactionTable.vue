@@ -73,9 +73,10 @@ async function listTransactions(){
         errorMessages.value = extractErrors(error)
     }
 }
+
 function formatDate(dateString: string): string {
   const date = new Date(dateString)
-  return date.toLocaleDateString('pt-BR') + ' ' + date.toLocaleTimeString('pt-BR')
+  return date.toLocaleDateString('pt-BR')
 }
 
 const computedBalance = computed(() => {

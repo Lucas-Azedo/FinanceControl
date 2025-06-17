@@ -9,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserUpdateNameRequestDTO {
-    @NotBlank(message = "Nome e obrigatório")
+    @NotBlank(message = "Novo nome é obrigatório")
     private String name;
 
     @NotBlank(message = "Senha é obrigatória")

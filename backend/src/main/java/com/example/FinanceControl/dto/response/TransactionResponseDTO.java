@@ -7,6 +7,7 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 @Data
@@ -16,7 +17,7 @@ public class TransactionResponseDTO {
     UUID id;
     BigDecimal amount;
     String description;
-    LocalDateTime date;
+    Date date;
 
     @Enumerated(EnumType.STRING)
     private TransactionType type;

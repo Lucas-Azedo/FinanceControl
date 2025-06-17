@@ -8,7 +8,7 @@
 
       <form class="form" @submit.prevent="signUp">
         <label> Nome </label>
-        <input v-model="name" placeholder="Name" type="text" arequired />
+        <input v-model="name" placeholder="Name" type="text" required />
 
         <label> E-mail </label>
         <input v-model="email" placeholder="E-mail" type="text" required />

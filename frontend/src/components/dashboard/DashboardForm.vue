@@ -7,6 +7,8 @@
       <form class="form" @submit.prevent="submitTransaction">
         <input v-model="amount" placeholder="Valor" type="number" />
         <input v-model="description" placeholder="Descrição" />
+
+        <input v-model="date" type="date" class="select" placeholder="Data" />
   
         <select v-model="transactionType" class="select">
             <option disabled value="">Selecione o tipo</option>
@@ -35,6 +37,7 @@ import { useExtractErrors } from '../../composables/useExtractErrors'
 
 const amount = ref('')
 const description = ref('')
+const date = ref('')
 const transactionType = ref('')
 const category = ref('')
 
@@ -52,6 +55,7 @@ async function submitTransaction() {
       body: JSON.stringify({
         amount: parseFloat(amount.value),
         description: description.value,
+        date: date.value,
         type: transactionType.value,
         category: category.value
       }),
