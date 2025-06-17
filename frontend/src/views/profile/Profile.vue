@@ -47,10 +47,8 @@ import DropdownMenu from '../../components/common/DropdownMenu.vue'
 import UserInfo from '../../components/profile/UserInfo.vue'
 import UserUpdateForm from '../../components/profile/UserUpdateForm.vue'
 import { useApiFetch } from '../../composables/useApiFetch'
-import { useExtractErrors } from '../../composables/useExtractErrors'
 
 const showForm = ref<'name' | 'email' | 'password' | ''>('')
-const { extractErrors } = useExtractErrors()
 
 async function updateField(endpoint: string, value: string, password: string) {
     var body: Record<string, string> = { password }
