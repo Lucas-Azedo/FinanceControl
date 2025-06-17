@@ -9,7 +9,7 @@ Application for personal financial management using transactions; with authentic
 
  ---
 
-## 🔧 Tech Stack
+## Tech Stack
 
 - **Java 21 + Spring Boot**
 - **JWT** for authentication
@@ -20,7 +20,35 @@ Application for personal financial management using transactions; with authentic
 - **Postman** for manual testing
 - **JUnit** & **Mockito** for automated backend testing
 - **Docker** for containerization
+  
+---
 
+## App in use
+![image](https://github.com/user-attachments/assets/ac4d2e92-98ec-452b-b1f3-320708a0f852)
+![image](https://github.com/user-attachments/assets/53d66d49-01dc-470d-b4e4-e8bd078891a4)
+![image](https://github.com/user-attachments/assets/7ae7fe18-1f41-4f48-8ee6-af19123f34bd)
+
+
+ ---
+## Continuous Integration (CI)
+This project uses GitHub Actions to automate testing and builds for both the backend and frontend every time code is pushed or a pull request is opened.
+
+### How CI Works
+Triggers: The CI workflow runs on every push and pull_request to any branch.
+
+Backend Job:
+- Spins up a MySQL 8.0 container for integration tests.
+- Waits for the database to be ready before running tests.
+- Builds and tests the backend using Maven with Java 21.
+- Builds the backend Docker image (financecontrol-backend).
+
+Frontend Job:
+- Installs Node.js version 20.
+- Installs frontend dependencies using npm ci.
+
+![image](https://github.com/user-attachments/assets/05d5d5ca-cc71-4ac2-b659-b4fa8e2a10e5)
+
+**You can find the workflow file at .github/workflows/ci.yml.**
  ---
 ## How to Run the Project
 - Running with Docker (recommended for production and isolated development)
