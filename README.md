@@ -6,8 +6,20 @@ Application for personal financial management using transactions; with authentic
 ![MySQL](https://img.shields.io/badge/MySQL-Database-informational)
 ![License](https://img.shields.io/badge/license-MIT-brightgreen)
 ![Build](https://img.shields.io/badge/build-passing-success)
+![Docker](https://img.shields.io/badge/docker-ready-blue)
+![Tests](https://img.shields.io/badge/tests-coverage-yellow)
 
  ---
+
+- [Tech Stack](#tech-stack)
+- [App in use](#app-in-use)
+- [Features](#features)
+- [Continuous Integration (CI)](#continuous-integration-ci)
+- [How to Run the Project](#how-to-run-the-project)
+- [Docker](#docker)
+- [Diagrams and Architecture](#diagrams-and-architecture)
+- [Backend Update Checklist](#backend-update-checklist)
+- [Frontend Update Checklist](#frontend-update-checklist)
 
 ## Tech Stack
 
@@ -130,15 +142,20 @@ See folder [docs/](./docs) for more information about the project structure.
 
 ## Backend Update Checklist
 ### 🚧 Needs
-- [ ] Data graphs
-- [ ] @Slf4j
-- [ ] Export (PDF)
-- [ ] Endpoints for Graphs (transactions/summary , transactions/by-category , transactions/monthly);
-- [ ] Pagination for Listing (?page=0&size=10&sort=date,desc.)
+- [ ] Export transactions to CSV
+- [ ] Export transactions to PDF
+- [ ] Add filtering by date range
+- [ ] Add filtering by category
+- [ ] Add filtering by type (INCOME/EXPENSE)
+- [ ] Add authentication logs using `@Slf4j`
+- [ ] Implement rate limiting via Spring Security
 
 #### 🧪 Testing
 - [ ] 70%
 - [ ] 80%+
+- [ ] Integration test for signin
+- [ ] Integration test for adding transaction
+- [ ] Integration test for getting transactions
 
 ### ✅ Done
 #### 🧪 Testing
@@ -187,6 +204,13 @@ See folder [docs/](./docs) for more information about the project structure.
 #### 💸 Transaction Management
 - [ ] Edit existing transactions
 - [ ] Filtering and sorting (by date, type, amount, etc.)
+- [ ] Modal confirmation for transaction deletion
+
+#### 📆 Budget & Planning
+- [ ] Monthly goal input screen
+- [ ] Budget by category input
+- [ ] Display remaining budget for each category
+- [ ] Visual warning when budget is exceeded
 
 #### 👥 User Management (Admin)
 - [ ] User listing screen
@@ -194,6 +218,12 @@ See folder [docs/](./docs) for more information about the project structure.
 - [ ] Edit user data
 - [ ] Delete users
 - [ ] Role and permission control (admin/user)
+
+#### 🧑‍💼 User Experience Improvements
+- [ ] Modal confirmation for transaction deletion
+- [ ] Real-time updated user updates
+- [ ] "Back to top" button
+- [ ] Visual feedback after adding/editing transactions
 
 #### 🖥️ General UI/UX
 - [ ] Responsive design (mobile-first)
