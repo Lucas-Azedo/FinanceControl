@@ -39,6 +39,7 @@ Application for personal financial management using transactions; with authentic
 ![image](https://github.com/user-attachments/assets/ac4d2e92-98ec-452b-b1f3-320708a0f852)
 ![image](https://github.com/user-attachments/assets/53d66d49-01dc-470d-b4e4-e8bd078891a4)
 ![image](https://github.com/user-attachments/assets/7ae7fe18-1f41-4f48-8ee6-af19123f34bd)
+![image](https://github.com/user-attachments/assets/3d77e51c-883e-4b93-866a-ee32798efa34)
 
 
  ---
@@ -66,10 +67,10 @@ This project uses **GitHub Actions** to automate testing and builds for both the
 #### Frontend Job
 - Sets up Node.js 20.
 - Installs dependencies using `npm ci`.
-
+- 
+You can find the workflow file at .github/workflows/ci.yml
 ![image](https://github.com/user-attachments/assets/05d5d5ca-cc71-4ac2-b659-b4fa8e2a10e5)
 
-**You can find the workflow file at .github/workflows/ci.yml.**
  ---
 ## How to Run the Project
 - Running with Docker (recommended for production and isolated development)
@@ -147,8 +148,6 @@ See folder [docs/](./docs) for more information about the project structure.
 - [ ] Add filtering by date range
 - [ ] Add filtering by category
 - [ ] Add filtering by type (INCOME/EXPENSE)
-- [ ] Add authentication logs using `@Slf4j`
-- [ ] Implement rate limiting via Spring Security
 
 #### 🧪 Testing
 - [ ] 70%
@@ -162,7 +161,7 @@ See folder [docs/](./docs) for more information about the project structure.
 - [x] 20%
 - [x] 50%
 
-#### 🔐 Authentication and Authorizatiom
+#### 🔐 Authentication and Authorization
 - [x] Refresh tokens
 - [x] Token Invalidation
 - [x] JWT
@@ -207,10 +206,8 @@ See folder [docs/](./docs) for more information about the project structure.
 - [ ] Modal confirmation for transaction deletion
 
 #### 📆 Budget & Planning
-- [ ] Monthly goal input screen
-- [ ] Budget by category input
-- [ ] Display remaining budget for each category
 - [ ] Visual warning when budget is exceeded
+- [ ] Monthly goal input screen
 
 #### 👥 User Management (Admin)
 - [ ] User listing screen
@@ -249,6 +246,10 @@ See folder [docs/](./docs) for more information about the project structure.
 - [x] Edit personal information (name, email, password, etc.)
 - [x] Form validation
 - [x] Visual feedback on success/error
+
+#### 📆 Budget & Planning
+- [x] Display remaining budget for each category
+- [x] Budget by category input
 
 #### 🖥️ General UI/UX
 - [x] Clear error/success messages
