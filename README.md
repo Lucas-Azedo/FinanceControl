@@ -6,8 +6,20 @@ Application for personal financial management using transactions; with authentic
 ![MySQL](https://img.shields.io/badge/MySQL-Database-informational)
 ![License](https://img.shields.io/badge/license-MIT-brightgreen)
 ![Build](https://img.shields.io/badge/build-passing-success)
+![Docker](https://img.shields.io/badge/docker-ready-blue)
+![Tests](https://img.shields.io/badge/tests-coverage-yellow)
 
  ---
+
+- [Tech Stack](#tech-stack)
+- [App in use](#app-in-use)
+- [Features](#features)
+- [Continuous Integration (CI)](#continuous-integration-ci)
+- [How to Run the Project](#how-to-run-the-project)
+- [Docker](#docker)
+- [Diagrams and Architecture](#diagrams-and-architecture)
+- [Backend Update Checklist](#backend-update-checklist)
+- [Frontend Update Checklist](#frontend-update-checklist)
 
 ## Tech Stack
 
@@ -27,6 +39,7 @@ Application for personal financial management using transactions; with authentic
 ![image](https://github.com/user-attachments/assets/ac4d2e92-98ec-452b-b1f3-320708a0f852)
 ![image](https://github.com/user-attachments/assets/53d66d49-01dc-470d-b4e4-e8bd078891a4)
 ![image](https://github.com/user-attachments/assets/7ae7fe18-1f41-4f48-8ee6-af19123f34bd)
+![image](https://github.com/user-attachments/assets/3d77e51c-883e-4b93-866a-ee32798efa34)
 
 
  ---
@@ -54,10 +67,10 @@ This project uses **GitHub Actions** to automate testing and builds for both the
 #### Frontend Job
 - Sets up Node.js 20.
 - Installs dependencies using `npm ci`.
-
+- 
+You can find the workflow file at .github/workflows/ci.yml
 ![image](https://github.com/user-attachments/assets/05d5d5ca-cc71-4ac2-b659-b4fa8e2a10e5)
 
-**You can find the workflow file at .github/workflows/ci.yml.**
  ---
 ## How to Run the Project
 - Running with Docker (recommended for production and isolated development)
@@ -130,22 +143,25 @@ See folder [docs/](./docs) for more information about the project structure.
 
 ## Backend Update Checklist
 ### 🚧 Needs
-- [ ] Data graphs
-- [ ] @Slf4j
-- [ ] Export (PDF)
-- [ ] Endpoints for Graphs (transactions/summary , transactions/by-category , transactions/monthly);
-- [ ] Pagination for Listing (?page=0&size=10&sort=date,desc.)
+- [ ] Export transactions to CSV
+- [ ] Export transactions to PDF
+- [ ] Add filtering by date range
+- [ ] Add filtering by category
+- [ ] Add filtering by type (INCOME/EXPENSE)
 
 #### 🧪 Testing
 - [ ] 70%
 - [ ] 80%+
+- [ ] Integration test for signin
+- [ ] Integration test for adding transaction
+- [ ] Integration test for getting transactions
 
 ### ✅ Done
 #### 🧪 Testing
 - [x] 20%
 - [x] 50%
 
-#### 🔐 Authentication and Authorizatiom
+#### 🔐 Authentication and Authorization
 - [x] Refresh tokens
 - [x] Token Invalidation
 - [x] JWT
@@ -187,6 +203,11 @@ See folder [docs/](./docs) for more information about the project structure.
 #### 💸 Transaction Management
 - [ ] Edit existing transactions
 - [ ] Filtering and sorting (by date, type, amount, etc.)
+- [ ] Modal confirmation for transaction deletion
+
+#### 📆 Budget & Planning
+- [ ] Visual warning when budget is exceeded
+- [ ] Monthly goal input screen
 
 #### 👥 User Management (Admin)
 - [ ] User listing screen
@@ -194,6 +215,12 @@ See folder [docs/](./docs) for more information about the project structure.
 - [ ] Edit user data
 - [ ] Delete users
 - [ ] Role and permission control (admin/user)
+
+#### 🧑‍💼 User Experience Improvements
+- [ ] Modal confirmation for transaction deletion
+- [ ] Real-time updated user updates
+- [ ] "Back to top" button
+- [ ] Visual feedback after adding/editing transactions
 
 #### 🖥️ General UI/UX
 - [ ] Responsive design (mobile-first)
@@ -219,6 +246,10 @@ See folder [docs/](./docs) for more information about the project structure.
 - [x] Edit personal information (name, email, password, etc.)
 - [x] Form validation
 - [x] Visual feedback on success/error
+
+#### 📆 Budget & Planning
+- [x] Display remaining budget for each category
+- [x] Budget by category input
 
 #### 🖥️ General UI/UX
 - [x] Clear error/success messages
