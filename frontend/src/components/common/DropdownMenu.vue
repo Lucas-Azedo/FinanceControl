@@ -6,8 +6,8 @@
         </span></h3>
       </div>
       <div class="redirect">
-        <button @click="goTo('dashboard')">Planejador</button>
-        <button @click="goTo('planner')">Gerenciador</button>
+        <button @click="goTo('planner')">Planejador</button>
+        <button @click="goTo('dashboard')">Gerenciador</button>
       </div>
       <div class="menu-container">
       <button @click="toggleMenu">Menu</button>

@@ -15,7 +15,7 @@ import UserManagement from '../views/admin/UserManagement.vue'
 import Profile from '../views/profile/Profile.vue'
 
 // Planner
-import Planner from '../views/planner/Planner.vue'
+import BudgetDashboard from '../views/dashboard/BudgetDashboard.vue'
 
 import { useGlobalMessage } from '../composables/useGlobalMessage'
 import { useAuth } from '../composables/useAuth'
@@ -41,8 +41,13 @@ const routes = [
     meta: { requiresAuth: true }
   },
   {
+    path: '/budget',
+    component: BudgetDashboard,
+    meta: { requiresAuth: true, requiresAdmin: true }
+  },
+    {
     path: '/planner',
-    component: Planner,
+    component: BudgetDashboard,
     meta: { requiresAuth: true, requiresAdmin: true }
   },
   {

@@ -8,7 +8,6 @@
         <thead>
         <tr>
             <th>Data</th>
-            <th>Tipo</th>
             <th>Valor</th>
             <th>Categoria</th>
             <th>Descrição</th>
@@ -19,7 +18,6 @@
         <tbody>
             <tr v-for="tx in transactions" :key="tx.id">
                 <td>{{ formatDate(tx.date) }}</td>
-                <td :class="tx.type === 'INPUT' ? 'success' : 'errors'"> {{ tx.type }} </td>
                 <td :class="tx.type === 'INPUT' ? 'success' : 'errors'"> {{ tx.type === 'INPUT' ? '+' : '-' }}R$ {{ tx.amount.toFixed(2) }}</td>
                 <td>{{ tx.category }}</td>
                 <td>{{ tx.description }}</td>

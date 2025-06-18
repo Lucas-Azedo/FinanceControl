@@ -28,6 +28,6 @@ public class User {
     private List<Transaction> transactions;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_roles")
+    @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 }
